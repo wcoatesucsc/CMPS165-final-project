@@ -1,0 +1,31 @@
+we can use the DAtaWeb source to take each individual commodity that has a proposed tariff on it and look up the percent of the total US market for that commodity that comes from China, relatively easily
+
+
+
+BLS Tables:
+https://data.bls.gov/cew/apps/data_views/data_views.htm#tab=Tables
+
+
+
+
+
+want to see "symmetry": he really likes the brookings institute maps, but he wants us to show how industries/regions could benefit from the tariffs
+
+
+challenge with county-wide: space constraint
+
+
+USA population density (pre-existing class visualization) shows that it's possible technically
+
+US Geomap by county
+	variables on the right to change between: % population/total, and adversely affected by Chinese tariffs/positively impacted by US tariffs
+
+	also show industry by industry (six products)
+
+market share stuff (total dollar amount): maybe an extra visualization (chart alongside? he wants some more ideas) he wants the impact in total dollar amount
+	-Chris likes this idea: add a tooltip on that pie chart showing raw amounts(or bar chart? Suresh might not like pie charts)
+
+maybe add a multiline chart or something 
+
+differentiation between the negative/positive impact buttons and the individual commodity buttons. Make sure the user can't pick the "negative impact" and "aluminum" buttons at the same timesimultaneously
+

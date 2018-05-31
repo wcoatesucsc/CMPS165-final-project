@@ -24,8 +24,27 @@ US Geomap by county
 
 market share stuff (total dollar amount): maybe an extra visualization (chart alongside? he wants some more ideas) he wants the impact in total dollar amount
 	-Chris likes this idea: add a tooltip on that pie chart showing raw amounts(or bar chart? Suresh might not like pie charts)
+	-stacked bar chart?
 
-maybe add a multiline chart or something 
+maybe add a multiline chart or something
 
-differentiation between the negative/positive impact buttons and the individual commodity buttons. Make sure the user can't pick the "negative impact" and "aluminum" buttons at the same timesimultaneously
+differentiation between the negative/positive impact buttons and the individual commodity buttons. Make sure the user can't pick the "negative impact" and "aluminum" buttons at the same time simultaneously
+	-maybe hide the positive when showing the negative
+	-pick view by industry or view by impact
 
+chord diagram might be a good alternative (either way, should have only three segments: China, US, rest of world)
+
+radar chart/spider chart might be another alternative
+keep the same green/red color for all industries
+	maybe pick diverging scale 
+
+
+page layout is important: figure out where to place the buttons, map, legend, other visualization
+
+think about annotations showing why the data shows what it does: telling the story
+	-library: d3-annotation by Susie Lu (she also has a legend library)
+	-highlight something interesting in the data, focus attention
+	-ex: steel jobs are concentrated in the Rust Belt, something about that 
+	-don't feel like we need to force an annotation, only do one if it's interesting
+
+pick a default display that's the most interesting 

@@ -67,7 +67,7 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
 
 // prototype bar chart
 //Original data
-var stackedBar = false;
+var stackedBar = true;
 
 if(stackedBar){
     console.log('using bar chart');

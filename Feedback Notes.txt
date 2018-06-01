@@ -48,3 +48,13 @@ think about annotations showing why the data shows what it does: telling the sto
 	-don't feel like we need to force an annotation, only do one if it's interesting
 
 pick a default display that's the most interesting 
+
+---------------------------------------------------------
+He doesn't like it anymore!
+---------------------------------------------------------
+-He got the wrong impression in our first meeting, he thought we had data/were going to visualize a projection of how the tariffs would impact employment, rather than just showing the current state of employment/geographic distribution of the affected industries is.
+-He would rather see us find data for a projection of how the tariff would impact employment in maybe one product rather than just showing the current state of employment/market share from China of commodities/industries
+-If we can't find good data for that (we can't) we should move ahead with what we're doing now, although he doesn't like it very much
+-Regardless, we need to have very clear titles/labels/legend so that there's no confusion about what we're visualizing. If we can't claim to show a projection of what the impact will be, don't say something like "The Impact of Trade War", say something more like "Where Industries that Will Be Affected by Trade War are Concentrated"
+-He thinks the project as he currently sees it is too shallow
+

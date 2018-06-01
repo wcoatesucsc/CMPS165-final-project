@@ -1,5 +1,7 @@
+/**************************************
+ * Steel
+ *************************************/
 HTS subheading Product Description
-
 72071100 ........... Iron or nonalloy steel semifinished products, w/less than 0.25% carbon, w/rect. cross
 sect.(incl. sq.), w/width less than twice thickness
 72071200 ........... Iron or nonalloy steel semifinished products, w/less than 0.25% carbon, w/rect. cross
@@ -11,14 +13,18 @@ w/rect. cross section
 relief, in coils, pickled, not clad/plated/coated
 72081060 ........... Iron/nonalloy steel,width 600mm+,hot-rolled flat-rolled product,in coil,w/pattern in
 relief,w/thick <4.75mm,not pickld,not clad/plated/coatd
+
 72082530 ........... Nonalloy hi-strength steel, width 600mm+, hot-rolled flat-rolled products, in coils,
 w/thick 4.75mm+, pickled, not clad/plated/coated
+
 72082560 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, in coils, w/thick
 4.7mm or more, pickled, not clad/plated/coated
 72082600 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, in coils, w/thick
 3mm or mor but less 4.75mm, pickled, not clad/plated
 72082700 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, in coils, w/thick
 less than 3mm, pickled, not clad/plated/coated
+
+
 72083600 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, in coils, w/thick
 o/10mm, not pickled/clad/plated/coated
 18
@@ -31,36 +37,51 @@ HTS subheading Product Description
 less than 3mm, not pickled/clad/plated/coated
 72084030 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, w/pattern in
 relief,not coils,w/thick 4.75 or more, n/clad/plated/coated
+
 72085100 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, nesoi, not in coils,
 w/thick o/10mm, not clad/plated/coated
 72085200 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, nesoi, not in coils,
 w/thick 4.75mm+ but n/o 10mm, not clad/plated/
 72085300 ........... Iron/nonalloy steel, width 600mm+, hot-rolled flat-rolled products, nesoi, not in coils,
 w/thick 3mm+ but < 4.75mm, not clad/plated/coated
+
+
 72091825 ........... Nonalloy steel(blackplate), width 600mm+, cold-rolled flat-rolled products, in coils,
 w/thick less than 0.361mm, not clad/plated/coated
 72091860 ........... Iron/nonalloy steel, width 600mm+, cold-rolled flat-rolled products, in coils, w/thick
 0.361mm+ but less 5mm, not clad/plated/coated
+
+
 72101100 ........... Iron/nonalloy steel, width 600mm+, flat-rolled products, plated or coated with tin,
 w/thick. 0.5 mm or more
+
+
 72102000 ........... Iron/nonalloy steel, width 600mm+, flat-rolled products, plated or coated with lead,
 including terneplate
+
+
 72106100 ........... Iron/nonalloy steel, width 600mm+, flat-rolled products, plated or coated with
 aluminum-zinc alloys
 72106900 ........... Iron/nonalloy steel, width 600mm+, flat-rolled products, plated or coated with
 aluminum o/than aluminum-zinc alloy
 72107030 ........... Iron/nonalloy steel, width 600mm+, flat-rolled products, painted/varnished or coated
 w/plastic but not plated/coated or clad w/metal
+
+
 72111300 ........... Iron/nonalloy steel, width less th/600mm, hot-rolled flat-rolled universal mill plate,
 not clad/plated/coated
 72111400 ........... Iron/nonalloy steel, width less th/600mm, hot-rolled flat-rolled products, nesoi,
 w/thick of 4.75mm or more, not clad/plated/coated
 72111920 ........... Iron/nonalloy steel, nesoi, width less th/300mm, hot-rolled flat-rolled products,
 w/thick o/1.25 mm but n/o 4.75 mm, n/clad/plated/coated
+
+
 72111930 ........... Iron/nonalloy steel, nesoi, width less th/300mm, hot-rolled flat-rolled products,
 w/thick 1.25mm or less, not clad/plated/coated
 72111975 ........... Iron/nonalloy steel, nesoi, width 300mm+ but less th/600mm, hot-rolled flat-rolled
 products, not pickled, not clad/plated/coated
+
+
 72112315 ........... Nonalloy hi-strength steel, width less th/300mm, cold-rolled flat-rolled, <0.25%
 carbon, w/thick o/1.25mm, not clad/plated/coated
 72112330 ........... Iron/nonalloy steel, nesoi, width less th/300mm, cold-rolled flat-rolled, <0.25%
@@ -69,18 +90,24 @@ carbon, w/thick o/0.25mm n/o 1.25mm, not clad/plated
 <0.25% carbon, not clad/plated/coated
 72112920 ........... Iron/nonalloy steel, width less th/300mm, cold-rolled flat-rolled, w/0.25% or more
 carbon,w/thick o/0.25mm, not clad/plated/coated
+
 19
 HTS subheading Product Description
 72112960 ........... Iron/nonalloy steel, width 300mm+ but less th/600mm, cold-rolled flat-rolled,
 w/0.25% or more carbon, not clad/plated/coated
+
+
 72119000 ........... Iron/nonalloy steel, width less th/600mm, flat-rolled further worked than cold-rolled,
 not clad, plated or coated
+
 72121000 ........... Iron/nonalloy steel, width less th/600mm, flat-rolled products, plated or coated with
 tin
 72122000 ........... Iron/nonalloy steel, width less th/600mm, flat-rolled products, electrolytically plated
 or coated with zinc
 72123010 ........... Iron/nonalloy steel, width less th/300mm, flat-rolled products, plated/coated with
 zinc (other than electrolytically), w/thick o/0.25mm
+
+
 72123050 ........... Iron/nonalloy steel, width 300+ but less th/600mm, flat-rolled products, plated or
 coated with zinc (other than electrolytically)
 72124010 ........... Iron/nonalloy steel, width less th/300mm, flat-rolled products, painted, varnished or
@@ -88,10 +115,14 @@ coated w/plastic
 72125000 ........... Iron/nonalloy steel, width less th/600mm, flat-rolled products, plated or coated nesoi
 72126000 ........... Iron/nonalloy steel, width less th/600mm, flat-rolled products, clad
 72131000 ........... Iron/nonalloy, concrete reinforcing bars and rods in irregularly wound coils, hot-rolled
+
+
 72139130 ........... Iron/nonalloy steel, nesoi, hot-rolled bars & rods in irregularly wound coils, w/cir. xsect.
 diam. <14mm, n/tempered/treated/partly mfd
 72139145 ........... Iron/nonalloy steel, nesoi, hot-rolled bars & rods in irregularly wound coils, w/cir. xsect.
 diam. <14mm, w/0.6%+ of carbon, nesoi
+
+
 72139900 ........... Iron/nonalloy steel, nesoi, hot-rolled bars & rods, w/cir. x-sect. diam 14+mm or noncirc.
 x-sect., in irregularly wound coils, nesoi
 72141000 ........... Iron/nonalloy steel, forged bars and rods, not in coils
@@ -99,12 +130,18 @@ x-sect., in irregularly wound coils, nesoi
 hot-drawn or hot-extruded, n/coils
 72143000 ........... Free-cutting steel, bars and rods, not further worked than hot-rolled, hot-drawn or
 hot-extruded, n/coils, nesoi
+
+
 72149100 ........... Iron/nonalloy steel, bars and rods, not further worked than hot-rolled, hot-drawn or
 hot-extruded, w/rectangular (o/than square) X-section
+
+
 72151000 ........... Free-cutting steel, bars and rods, not further worked than cold-formed or coldfinished,
 not in coils
 72155000 ........... Iron/nonalloy steel nesoi, bars and rods, not further wkd. than cold-formed or coldfinished,
 not in coils
+
+
 72161000 ........... Iron/nonalloy steel, U,I or H-sections, not further worked than hot-rolled, hot-drawn
 or extruded, w/height under 80 mm
 72163100 ........... Iron/nonalloy steel, U-sections, not further worked than hot-rolled, hot-drawn or
@@ -113,7 +150,11 @@ extruded, w/height of 80 mm or more
 hot-drawn or extruded, w/height 80 mm or more
 72163300 ........... Iron/nonalloy steel, H-sections, not further worked than hot-rolled, hot-drawn or
 extruded, w/height 80 mm or more
+
+
 72171070 ........... Iron/nonalloy steel, flat wire, w/0.25% or more carbon, not plated or coated
+
+
 72181000 ........... Stainless steel, ingots and other primary forms
 72189100 ........... Stainless steel, semifinished products of rectangular (other than square) cross-section
 20
@@ -130,6 +171,8 @@ w/thickness o/10 mm
 mm or more but less than 4.75 mm
 72192400 ........... Stainless steel, width 600mm+, hot-rolled flat-rolled products, not in coils,
 w/thickness less than 3 mm
+
+
 72201100 ........... Stainless steel, width less th/600mm, hot-rolled flat-rolled products, w/thickness of
 4.75 mm or more
 72201210 ........... Stainless steel, width 300m+ but less th/600mm, hot-rolled flat-rolled products,
@@ -141,6 +184,8 @@ o/1.25 mm
 n/o 0.25 mm
 72202090 ........... Stainless steel (o/than razor blade steel), width less th/300mm, cold-rolled flat-rolled
 products, w/thickness n/o 0.25 mm
+
+
 72221100 ........... Stainless steel, bars and rods, hot-rolled, hot-drawn or extruded, of circular crosssection
 72221900 ........... Stainless steel, bars and rods, hot-rolled, hot-drawn or extruded, other than of circular
 cross-section
@@ -148,6 +193,8 @@ cross-section
 nesoi
 72224030 ........... Stainless steel, angles, shapes & sections, hot-rolled, not drilled/punched or otherwise
 advanced
+
+
 72230090 ........... Stainless steel, wire (other than round or flat wire)
 72241000 ........... Alloy (o/than stainless) steel, ingots and other primary forms
 72249000 ........... Alloy (o/than stainless) steel, semifinished products
@@ -157,12 +204,16 @@ products
 4.75 mm or more
 72253051 ........... Alloy tool steel, width 600mm+, hot-rolled flat-rolled products, in coils, w/thick. of less
 than 4.75 mm
+
+
 72254070 ........... Alloy (o/th stainless, silicon elect., hi-speed, or tool) steel, width 600mm+, hot-rolled
 flat-rolled prod., n/coils, w/thick less 4.75mm
 72255070 ........... Alloy heat-resisting steel, width 600mm+, cold-rolled flat-rolled products, w/thickness
 less than 4.75 mm
 72255080 ........... Alloy steel (o/th heat-resisting), width 600mm+, cold-rolled flat-rolled products,
 w/thickness less than 4.75 mm
+
+
 21
 HTS subheading Product Description
 72259100 ........... Alloy steel, width 600mm+, flat-rolled products further worked than cold-rolled,
@@ -177,6 +228,7 @@ products
 th/600mm, flat-rolled products
 72261990 ........... Alloy silicon electrical steel (o/than grain-oriented), width less th/300mm, flat-rolled
 products
+
 72269115 ........... Alloy tool steel (o/than hi-speed/chipper knife), width 300mm+ but less th/600mm,
 hot-rolled flat-rolled products
 72269150 ........... Alloy steel (o/than silicon elect./tool), width less th/600mm, hot-rolled flat-rolled
@@ -191,6 +243,8 @@ w/thickness n/o 0.25 mm
 w/thickness o/0.25 mm
 72269901 ........... Alloy steel, width less than 600mm, flat-rolled products further worked than coldrolled,
 nesoi
+
+
 72272000 ........... Alloy silico-manganese steel, bars and rods in irregularly wound coils, hot-rolled
 72279010 ........... Alloy tool steel (o/than hi-speed), bars & rods in irregular wound coils, hot-rolled,
 n/tempered, treated or partly manufactured
@@ -204,9 +258,17 @@ forged, cold-formed or cold-finished
 72286060 ........... Alloy steel (o/than tool), bars and rods, further worked than hot-rolled, forged but not
 cold-formed
 72286080 ........... Alloy steel (o/than tool), bars and rods, cold-formed
+
+
 72299010 ........... Alloy steel (o/than hi-speed/silico-mang.), flat wire
+
+
 73021050 ........... Alloy steel, rails for railway or tramway tracks
+
+
 73041950 ........... Alloy (other than stainless) steel, seamless line pipe used for oil or gas pipelines
+
+
 73042430 ........... Stainless steel, seamless casing pipe, threaded or coupled, of a kind used in drilling for
 oil or gas
 22
@@ -224,8 +286,12 @@ kind used in drilling for oil or gas
 73042950 ........... Iron (o/than cast) or nonalloy, seamless tubing, of a kind used in drilling for oil or gas
 73042961 ........... Alloy (other than stainless) steel, seamless tubing, of a kind used in drilling for oil or
 gas
+
+
 73045960 ........... Heat-resisting alloy steel (o/than stainless), seamless, n/cold-drawn/cold-rolled,
 tubes, pipes, etc., w/circ. cross sect., nesoi
+
+
 73051150 ........... Alloy steel, seamed, circ. w/cross sect. & ext. diam o/406.4mm, line pipe, long.
 submerg. arc weld., used for oil/gas pipelines
 73051210 ........... Iron or nonalloy steel, seamed, w/circ. cross sect. & ext. diam o/406.4mm, line pipe,
@@ -256,6 +322,8 @@ of a kind used for oil and gas pipelines
 line pipe of a kind used for oil and gas pipelines
 73061951 ........... Alloy steel, seamed (o/than welded stainless steel), w/ext. diam 406.4mm or less or
 o/than circ. x-sect, line pipe of a kind used for oil an
+
+
 23
 HTS subheading Product Description
 73062910 ........... Iron or nonalloy steel, seamed, w/ext. diam 406.4mm or less or o/than circ. x-sect,
@@ -288,14 +356,25 @@ thickness of 4 mm or more
 profiles, w/wall thickness less than 4 mm
 73066970 ........... Alloy steel, welded, w/other non-circ. x-sect, tubes, pipes and hollow profiles, w/wall
 thickness less than 4 mm
+
+
 73181600 ........... Iron or steel, nuts
 73202010 ........... Iron or steel, helical springs, suitable for motor-vehicle suspension
 73202050 ........... Iron or steel, helical springs (o/than suitable for motor-vehicle suspension)
 
+
+
 83021030 ........... Iron or steel, aluminum, or zinc hinges and base metal parts thereof, designed for
 motor vehicles
+
+
 84813020 ........... Check valves of iron or steel for pipes, boiler shells, tanks, vats or the like
 
+
+
+/***********************************
+ * Aluminum
+ **********************************/
 76011030 ........... Aluminum (o/than alloy), unwrought, in coils, w/uniform x-section throughout length
 & w/least cross-sectional dimension n/o 9.5 mm
 76011060 ........... Aluminum (o/than alloy), unwrought nesoi
@@ -339,7 +418,6 @@ character, design, fancy effect or pattern
 85322200 ........... Aluminum electrolytic fixed capacitors
 
 73202010 ........... Iron or steel, helical springs, suitable for motor-vehicle suspension
-73202050 ........... Iron or steel, helical springs (o/than suitable for motor-vehicle suspension)
 83021030 ........... Iron or steel, aluminum, or zinc hinges and base metal parts thereof, designed for
 motor vehicles
 85013245 ........... DC motors nesi, of an output exceeding 14.92 kW but not exceeding 75 kW, used as

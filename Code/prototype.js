@@ -48,13 +48,12 @@ var color = d3.scaleQuantize()
 .range(['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)']);
 
 
-d3.json("gz_2010_us_050_00_500k.json", function(json){
+d3.json("GeoJSON/gz_2010_us_050_00_500k.json", function(json){
     svg.selectAll("path")
     .data(json.features)
 	.enter()
     .append("path")
     .attr("d", path)
-    //.style("fill", "steelblue");
     .style("fill", function(d){
         let rand = Math.round(Math.random() * 5);
         return color(rand);

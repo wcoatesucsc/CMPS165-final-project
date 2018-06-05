@@ -123,9 +123,19 @@ var div = d3.select("body").append("div")
 */
 
 // button input, changes color value depending on clicked button
-d3.selectAll("input").on("change", function(){
-    console.log(this.name)
-});
+function updateColorGreen() {
+    console.log("update color green")
+    var color = d3.scaleQuantize()
+    .domain([0, 10])
+    .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+}
+
+function updateColorRed() {
+    console.log("update color red")
+    var color = d3.scaleQuantize()
+    .domain([0, 10])
+    .range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)']);
+}
 
 
 // color scale for showing population density appropriately:

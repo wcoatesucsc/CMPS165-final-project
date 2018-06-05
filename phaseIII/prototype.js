@@ -14,6 +14,9 @@ var barHorizOffset = 1200;
 var pieRadius = 125;
 var pieVertOffset = 150;
 var pieHorizOffset = 1250;
+// tooltip magic numbers
+var tooltipXOffset = 0;
+var tooltipYOffset = 250;
 
 // US states indexed by GeoJSON number
 // NOTE: It doesn't go 01-50, it goes 01, 02, 04(!), 05, 06, 08(!)... for some reason,
@@ -79,7 +82,8 @@ function generateTooltipHeader(countyName, stateNum){
     // look up state and county name for feature
     let header = countyName;
     
-    // Alaska counties are called Boroughs
+    // Alaska counties are sometimes called Boroughs, sometimes Census Areas, etc.
+    // Should expand to 
     if(stateNum == "02"){
         header += " Borough, ";
     }
@@ -92,10 +96,11 @@ function generateTooltipHeader(countyName, stateNum){
     }
     // District of Columbia shouldn't read
     // "District of Columbia, District of Columbia"
+    
     if(stateNum != "11"){
         header += states[stateNum];
     }
-    
+   
     return header;
 }
 //Define map projection
@@ -180,8 +185,8 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
     })
     // tooltips!
     .on("mouseover", function(d){
-        var xPosition = (d3.mouse(this)[0]);
-        var yPosition = (d3.mouse(this)[1]);
+        var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
+        var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
         
         
         //Update the tooltip position and value

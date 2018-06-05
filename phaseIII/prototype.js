@@ -122,6 +122,12 @@ var div = d3.select("body").append("div")
 .classed("hidden", true);
 */
 
+// button input, changes color value depending on clicked button
+d3.selectAll("input").on("change", function(){
+    console.log(this.name)
+});
+
+
 // color scale for showing population density appropriately:
 // the darker the blue, the higher the population density
 // colors from colorbrewer2.org
@@ -310,28 +316,3 @@ else{
             .attr("y", pieVertOffset + 300)
             .text("Legend");
 }
-
-svg.append("text")
-    .attr("x", w/2)
-    .attr("y", h - 200)
-    .text("Buttons!");
-// radio buttons (borrowed from: https://stackoverflow.com/questions/19302318/radio-buttons-in-d3-how-to-align-text-correctly-and-select-a-default?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
-/*
-var labelText = ["hello", "world", "foo", "bar"];
-var form = svg.append("form")
-var buttonLabels = form.selectAll("label")
-                        .data(labelText)
-                        .enter()
-                        .append("label")
-                        .text(function(d){console.log(d); return d;})
-                        .insert("input")
-                        .attr({
-                            type: "radio",
-                            class: "shape",
-                            name: "mode",
-                            value: function(d, i) {return i;},
-                            x: barHorizOffset,
-                            y: barVertOffset + 300
-                        });
-                        //.property("checked", function(d, i) {return i===j;});
-*/

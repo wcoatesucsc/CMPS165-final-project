@@ -3,7 +3,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="stupid.css"> 
     <script type= "text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Phase III</title>
 </head>
 <body>
@@ -34,19 +33,23 @@
         <div class="visualization container">
             <script type="text/javascript" src="prototype.js"></script>
 
-            <div id="positive" style="margin-left: 55%; top: 100px;">
-                <input name="positive" 
+            <div id="positive" style="margin-left: 55%; top: 100px; position:static">
+                <input 
+                name="positive" 
                 type="button" 
                 value="Positive impact"
                 class="rounded green"
+                onclick="updateColorGreen()"
                 />
             </div>
          
-            <div id="negative" style="margin-left: 55%; top: 100px;">
-                <input name="negative" 
+            <div id="negative" style="margin-left: 55%; top: 100px; position:static">
+                <input 
+                name="negative" 
                 type="button" 
                 value="Negative impact"
                 class="rounded red"
+                onclick="updateColorRed()"
                 />
             </div>
 
@@ -79,6 +82,7 @@
             <div class="quarter compressible center">
                 <h6>Code Sources</h6>
                 <a href="https://mdipierro.github.io/stupid.css/index.html" target="_blank">CSS: stupid.css</a> by Massimo Di Pierro<br>
+                <a href="http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3" target="_blank">Color Brewer 2.0</a> by Cynthia Brewer, Mark Harrower<br>
             </div>
             <div class="quarter compressible center">
                 <h6>Data Sources</h6>

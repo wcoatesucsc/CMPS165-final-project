@@ -122,12 +122,27 @@ var div = d3.select("body").append("div")
 .classed("hidden", true);
 */
 
+
+// color scale for showing population density appropriately:
+// the darker the blue, the higher the population density
+// colors from colorbrewer2.org
+var color = d3.scaleQuantize()
+.domain([0, 10])
+.range(['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)']);
+
+
 // button input, changes color value depending on clicked button
 function updateColorGreen() {
     console.log("update color green")
     var color = d3.scaleQuantize()
     .domain([0, 10])
     .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+
+    svg.selectAll("path#map")
+    .style("fill", function(d){
+        let rand = Math.round(Math.random() * 5);
+        return color(rand);
+    })
 }
 
 function updateColorRed() {
@@ -135,16 +150,13 @@ function updateColorRed() {
     var color = d3.scaleQuantize()
     .domain([0, 10])
     .range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)']);
+    
+    svg.selectAll("path#map")
+    .style("fill", function(d){
+        let rand = Math.round(Math.random() * 5);
+        return color(rand);
+    })   
 }
-
-
-// color scale for showing population density appropriately:
-// the darker the blue, the higher the population density
-// colors from colorbrewer2.org
-
-var color = d3.scaleQuantize()
-.domain([0, 10])
-.range(['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)']);
 
 
 d3.json("gz_2010_us_050_00_500k.json", function(json){
@@ -153,6 +165,7 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
 	.enter()
     .append("path")
     .attr("d", path)
+    .attr("id", "map")
     .style("fill", function(d){
         let rand = Math.round(Math.random() * 5);
         return color(rand);

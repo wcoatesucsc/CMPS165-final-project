@@ -15,7 +15,89 @@ var pieRadius = 125;
 var pieVertOffset = 150;
 var pieHorizOffset = 1250;
 
+// US states indexed by GeoJSON number
+// NOTE: It doesn't go 01-50, it goes 01, 02, 04(!), 05, 06, 08(!)... for some reason,
+// until "STATE":"72"
+var states = {
+    "01": "Alabama",
+    "02": "Alaska",
+    "04": "Arizona",
+    "05": "Arkansas",
+    "06": "California",
+    "08": "Colorado",
+    "09": "Connecticut",
+    "10": "Delaware",
+    "11": "District of Columbia",
+    "12": "Florida",
+    "13": "Georgia",
+    "15": "Hawaii",
+    "16": "Idaho",
+    "17": "Illinois",
+    "18": "Indiana",
+    "19": "Iowa",
+    "20": "Kansas",
+    "21": "Kentucky",
+    "22": "Louisiana",
+    "23": "Maine",
+    "24": "Maryland",
+    "25": "Massachusetts",
+    "26": "Michigan",
+    "27": "Minnesota",
+    "28": "Mississippi",
+    "29": "Missouri",
+    "30": "Montana",
+    "31": "Nebraska",
+    "32": "Nevada",
+    "33": "New Hampshire",
+    "34": "New Jersey",
+    "35": "New Mexico",
+    "36": "New York",
+    "37": "North Carolina",
+    "38": "North Dakota",
+    "39": "Ohio",
+    "40": "Oklahoma",
+    "41": "Oregon",
+    "42": "Pennsylvania",
+    "44": "Rhode Island",
+    "45": "South Carolina",
+    "46": "South Dakota",
+    "47": "Tennessee",
+    "48": "Texas",
+    "49": "Utah",
+    "50": "Vermont",
+    "51": "Virginia",
+    "53": "Washington",
+    "54": "West Virginia",
+    "55": "Wisconsin",
+    "56": "Wyoming",
+    "72": "Puerto Rico",
+}
 
+
+function generateTooltipHeader(countyName, stateNum){
+    
+    // look up state and county name for feature
+    let header = countyName;
+    
+    // Alaska counties are called Boroughs
+    if(stateNum == "02"){
+        header += " Borough, ";
+    }
+    // Louisiana counties are called Parishes
+    else if(stateNum == "22"){
+        header += " Parish, ";
+    }
+    else if(stateNum != "11"){
+        header += " County, ";
+    }
+    // District of Columbia shouldn't read
+    // "District of Columbia, District of Columbia"
+    if(stateNum != "11"){
+        header += states[stateNum];
+    }
+    
+    return header;
+}
 //Define map projection
 var projection = d3.geoAlbersUsa()
 				   .translate([(w/2) - mapHorizOffset, (h/2) - mapVertOffset])
@@ -39,6 +121,7 @@ var div = d3.select("body").append("div")
 .attr("class", "tooltip")
 .classed("hidden", true);
 */
+
 // color scale for showing population density appropriately:
 // the darker the blue, the higher the population density
 // colors from colorbrewer2.org
@@ -54,12 +137,32 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
 	.enter()
     .append("path")
     .attr("d", path)
-    //.style("fill", "steelblue");
     .style("fill", function(d){
         let rand = Math.round(Math.random() * 5);
         return color(rand);
+    })
+    // tooltips!
+    .on("mouseover", function(d){
+        var xPosition = (d3.mouse(this)[0]);
+        var yPosition = (d3.mouse(this)[1]);
+        
+        
+        //Update the tooltip position and value
+        d3.select("#tooltip")
+          .style("left", xPosition + "px")
+          .style("top", yPosition + "px")
+          .select("#tooltipheader")
+          //.text(d.properties.NAME + " County, ")
+          .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
+        
+        //Show the tooltip
+        d3.select("#tooltip").classed("hidden", false);
+    })
+    .on("mouseout", function(){
+        //Hide the tooltip
+        d3.select("#tooltip").classed("hidden", true);
     });
-    
+   
 });
 
 
@@ -67,6 +170,7 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
 
 // prototype bar chart
 //Original data
+
 var stackedBar = false;
 
 if(stackedBar){

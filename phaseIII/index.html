@@ -6,16 +6,21 @@
     <title>Phase III</title>
 </head>
 <body>
-
-        <div class="visualization container">
-            <script type="text/javascript" src="prototype.js"></script>
-        </div>
-    <div class="container">
+        <!--using textbook version of tooltip instead of stupid.css-->
+		<div id="tooltip" class="hidden">
+            <p style="text-align: center"><strong><span id="tooltipheader">County, State</span></strong></p>
+			<p><span id="tooltipvalue">100</span></p>
+		</div>
         <div class="padded">
             <h3>Title</h3>
             <h3>Insights</h3>
             <h3>Prototype Visualization</h3>
         </div>
+        <div class="visualization container">
+            <script type="text/javascript" src="prototype.js"></script>
+            
+        </div>
+    <div class="container">
 
 
         <div class="center">
@@ -41,6 +46,8 @@
             </div>
             <div class="quarter compressible center">
                 <h6>Code Sources</h6>
+                <h8>CSS: stupid.css by Massimo Di Pierro</h8><br>
+                <h8>etc</h8>
             </div>
             <div class="quarter compressible center">
                 <h6>Data Sources</h6>

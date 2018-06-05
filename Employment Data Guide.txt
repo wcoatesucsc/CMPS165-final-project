@@ -1,0 +1,25 @@
+How to get employment data for the industries we want:
+https://www.bls.gov/cew/datatoc.htm
+
+I went to that link and downloaded the CSV by Industry (2017 quarterly)
+
+That .zip folder extracted to a bunch of .csv files, one for each industry as coded by NAICS. 
+
+Look up the industry you want in the NAICS system: https://www.bls.gov/iag/tgs/iag_index_naics.htm
+
+From there, open that file and see the data for that industry, broken down by county
+	There's a county name, but there's also an area FIPS code in the first column
+		-first two digits = state code
+		-last three digits = county code
+		-THESE ARE THE SAME AS THE STATE AND COUNTY CODE IN THE GEOJSON HOORAY
+
+Can filter this quarterly data to only include Q3 by opening the file in Excel:
+	-selecting the qtr column and clicking the Sort & Filter button in the upper right
+	-clicking on the little arrow that appears in the first row of the qtr column
+	-selecting 1 and 2, deselecting 3
+	-deleting those rows (excluding the header!) (Note: don't just push the delete key, click the "Delete" button with the red X in the toolbar
+	-saving the result
+
+	
+So let's get the 2017Q3 data for each industry we're interested in. Once we have that file, we can iterate over each entry, parse the area FIPS to tie it to an individual county, and attach the employment number as an additional field for that feature. Since we're only going to do six geomaps, we should do that ahead of time so we don't have to do the iteration every time the map loads.
+

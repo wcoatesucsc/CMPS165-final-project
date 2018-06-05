@@ -128,7 +128,7 @@ var div = d3.select("body").append("div")
 // colors from colorbrewer2.org
 var color = d3.scaleQuantize()
 .domain([0, 10])
-.range(['rgb(239,243,255)','rgb(189,215,231)','rgb(107,174,214)','rgb(49,130,189)','rgb(8,81,156)']);
+.range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
 
 
 // button input, changes color value depending on clicked button

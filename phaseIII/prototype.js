@@ -158,6 +158,14 @@ function updateColorRed() {
     })   
 }
 
+// radio button input, changes value of commodity string based on selected button
+// value is Steel by default
+var commodity = "Steel";
+function radioUpdate() {
+    d3.selectAll("input[name='commodity']").on("change", function(){
+        var commodity = this.value;
+    });
+}
 
 d3.json("gz_2010_us_050_00_500k.json", function(json){
     svg.selectAll("path")

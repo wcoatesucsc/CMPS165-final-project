@@ -25,8 +25,6 @@ with open('./steel_iron.csv') as csvfile:
 				properties = row['properties']
 				json_fips = properties['STATE']+properties['COUNTY']
 				steel_emp = properties['STEEL_EMP']
-
-				entry = {'STEEL_EMP': 0}
 				
 				if json_fips==csv_fips:
 					print(json_fips+" "+employment+" "+str(steel_emp))

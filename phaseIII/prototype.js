@@ -145,7 +145,7 @@ function updateColorGreen() {
 
     svg.selectAll("path#map")
     .style("fill", function(d){
-        let rand = Math.round(Math.random() * 5);
+        let rand = Math.round(Math.random() * 10);
         return color(rand);
     })
 }
@@ -158,7 +158,7 @@ function updateColorRed() {
     
     svg.selectAll("path#map")
     .style("fill", function(d){
-        let rand = Math.round(Math.random() * 5);
+        let rand = Math.round(Math.random() * 10);
         return color(rand);
     })   
 }
@@ -180,7 +180,7 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
     .attr("d", path)
     .attr("id", "map")
     .style("fill", function(d){
-        let rand = Math.round(Math.random() * 5);
+        let rand = Math.round(Math.random() * 10);
         return color(rand);
     })
     // tooltips!

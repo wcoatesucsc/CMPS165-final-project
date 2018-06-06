@@ -58,3 +58,24 @@ He doesn't like it anymore!
 -Regardless, we need to have very clear titles/labels/legend so that there's no confusion about what we're visualizing. If we can't claim to show a projection of what the impact will be, don't say something like "The Impact of Trade War", say something more like "Where Industries that Will Be Affected by Trade War are Concentrated"
 -He thinks the project as he currently sees it is too shallow
 
+--------------------------------------------------------
+Tuesday, June 5 in class feedback
+
+Chris -
+	add border lines to make viewing easier, or a zoom in feature
+	hide radio buttons based on button clicked
+
+Janesh - 
+	make pie chart look better
+		perhaps dont evne use pie chart, use donut and put % or raw # in middle
+
+Suresh -
+	gave us WSJ newspaper, offers good context
+	"market share" is confusing, change to "US imports/Exports", something like that
+		either remove or put something that makes more sense, like stacked bar chart
+
+Karthik -
+	add legend
+	make color differences more clear
+	increase stroke for state borders, not county borders
+	do stacked bar chart from WSJ

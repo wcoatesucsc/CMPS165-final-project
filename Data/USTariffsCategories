@@ -417,136 +417,389 @@ character, design, fancy effect or pattern
 84195010 ........... Brazed aluminum plate-fin heat exchangers
 85322200 ........... Aluminum electrolytic fixed capacitors
 
-73202010 ........... Iron or steel, helical springs, suitable for motor-vehicle suspension
-83021030 ........... Iron or steel, aluminum, or zinc hinges and base metal parts thereof, designed for
-motor vehicles
+
+/* 
+ * Consumer Electronics/High-Tech
+ */
+ 85011040 ........... Electric motors of an output of under 18.65 W, other than synchronous valued not
+over $4 each
+85012020 ........... Universal AC/DC motors of an output exceeding 37.5 W but not exceeding 74.6 W
+85012050 ........... Universal AC/DC motors of an output exceeding 735 W but under 746 W
+85012060 ........... Universal AC/DC motors of an output of 746 W or more
+85013120 ........... DC motors nesi, of an output exceeding 37.5 W but not exceeding 74.6 W
+85013150 ........... DC motors, nesi, of an output exceeding 735 W but under 746 W
+85013160 ........... DC motors nesi, of an output of 746 W but not exceeding 750 W
 85013245 ........... DC motors nesi, of an output exceeding 14.92 kW but not exceeding 75 kW, used as
 primary source of mechanical power for electric vehicles
+85013255 ........... DC motors nesi, of an output exceeding 14.92 kW but not exceeding 75 kW, nesi
+85013340 ........... DC motors nesi, of an output exceeding 150 kW but not exceeding 375 kW
+85013360 ........... DC generators of an output exceeding 75 kW but not exceeding 375 kW
+85013430 ........... DC motors nesi, of an output exceeding 375 kW
+85013460 ........... DC generators of an output exceeding 375 kW
+85015120 ........... AC motors nesi, multi-phase, of an output exceeding 37.5 W but not exceeding 74.6 W
+85015140 ........... AC motors, nesi, multi-phase, of an output exceeding 74.6 W but not exceeding 735 W
+85015150 ........... AC motors, nesi, multi-phase, of an output exceeding 735 W but under 746 W
+85015160 ........... AC motors nesi, multi-phase of an output of 746 W but not exceeding 750 W
+85015280 ........... AC motors nesi, multi-phase, of an output exceeding 14.92 kW but not exceeding 75
+kW
+85015340 ........... AC motors nesi, multi-phase, of an output exceeding 75 kW but under 149.2 kW
+85015380 ........... AC motors nesi, multi-phase, of an output exceeding 150 kW
+85016200 ........... AC generators (alternators) of an output exceeding 75 kVA but not exceeding 375 kVA
+85016300 ........... AC generators (alternators) of an output exceeding 375 kVA but not exceeding 750
+kVA
+85016400 ........... AC generators (alternators) of an output exceeding 750 kVA
+85021100 ........... Electric generating sets with compression-ignition internal-combustion piston engines,
+of an output not exceeding 75 kVA
+85021200 ........... Electric generating sets with compression-ignition internal-combustion piston engines,
+of an output exceeding 75 kVA but not over 375 kVA
+85021300 ........... Electric generating sets with compression-ignition internal-combustion piston engines,
+of an output exceeding 375 kVA
+85023100 ........... Wind-powered electric generating sets
+85023900 ........... Electric generating sets, nesoi
+85024000 ........... Electric rotary converters
+85030020 ........... Commutators suitable for use solely or principally with the machines of heading 8501
+or 8502
+85030035 ........... Parts of electric motors under 18.65 W, stators and rotors
+85030045 ........... Stators and rotors for electric generators for use on aircraft
+85030065 ........... Stators and rotors for electric motors & generators of heading 8501, nesi
+85030075 ........... Parts of electric motors under 18.65 W, other than commutators, stators or rotors
+85030090 ........... Parts for electric generators suitable for use on aircraft
+42
+
+85042100 ........... Liquid dielectric transformers having a power handling capacity not exceeding 650
+kVA
+85042200 ........... Liquid dielectric transformers having a power handling capacity exceeding 650 kVA
+but not exceeding 10,000 kVA
+85042300 ........... Liquid dielectric transformers having a power handling capacity exceeding 10,000 kVA
+85043200 ........... Electrical transformers other than liquid dielectric, having a power handling capacity
+exceeding 1 kVA but not exceeding 16 kVA
+85043300 ........... Electrical transformers other than liquid dielectric, having a power handling capacity
+exceeding 16 kVA but not exceeding 500 kVA
+85043400 ........... Electrical transformers other than liquid dielectric, having a power handling capacity
+exceeding 500 kVA
+85044040 ........... Electrical speed drive controllers for electric motors (static converters)
+85049041 ........... Parts of power supplies (other than printed circuit assemblies) for automatic data
+processing machines or units thereof of heading 8471
+85049065 ........... Printed circuit assemblies of the goods of subheading 8504.40 or 8504.50 for
+telecommunication apparatus
+85049075 ........... Printed circuit assemblies of electrical transformers, static converters and inductors,
+nesoi
+85049096 ........... Parts (other than printed circuit assemblies) of electrical transformers, static
+converters and inductors
+85051910 ........... Flexible permanent magnets, other than of metal
+85052000 ........... Electromagnetic couplings, clutches and brakes
+85059030 ........... Electromagnetic lifting heads
+85059040 ........... Electromagnetic or permanent magnet work holders and parts thereof
+85059070 ........... Electromagnets used for MRI
+85059075 ........... Other electromagnets and parts thereof, and parts of related electromagnetic articles
+nesi
+85064010 ........... Silver oxide primary cells and primary batteries having an external volume not
+exceeding 300 cubic cm
+85064050 ........... Silver oxide primary cells and primary batteries having an external volume exceeding
+300 cubic cm
+85065000 ........... Lithium primary cells and primary batteries
+85066000 ........... Air-zinc primary cells and primary batteries
+85069000 ........... Parts of primary cells and primary batteries
+85073080 ........... Nickel-cadmium storage batteries, other than of a kind used as the primary source of
+power for electric vehicles
+85079040 ........... Parts of lead-acid storage batteries, including separators therefor
+85079080 ........... Parts of storage batteries, including separators therefor, other than parts of lead-acid
+storage batteries
+85141000 ........... Resistance heated industrial or laboratory furnaces and ovens
+85142060 ........... Industrial or laboratory microwave ovens, nesoi
+85142080 ........... Industrial or laboratory furnaces and ovens (other than microwave) functioning by
+induction or dielectric loss
+85143010 ........... Industrial furnaces and ovens for making printed circuits or printed circuit assemblies
+85143090 ........... Industrial or laboratory electric industrial or laboratory furnaces and ovens nesi
+43
+
+85144000 ........... Industrial or laboratory induction or dielectric heating equipment nesi
+85149080 ........... Parts of industrial or laboratory electric furnaces and ovens and other industrial or
+laboratory induction or dielectric heating equipment
+85151100 ........... Electric soldering irons and guns
+85151900 ........... Electric brazing or soldering machines and apparatus, other than soldering irons and
+guns
+85152100 ........... Electric machines and apparatus for resistance welding of metal, fully or partly
+automatic
+85152900 ........... Electric machines and apparatus for resistance welding of metal, other than fully or
+partly automatic
+85153100 ........... Electric machines and apparatus for arc (including plasma arc) welding of metals, fully
+or partly automatic
+85153900 ........... Electric machines and apparatus for arc (including plasma arc) welding of metals,
+other than fully or partly automatic
+85158000 ........... Electric welding apparatus nesi,and electric machines and apparatus for hot spraying
+metals or sintered metal carbides
+85159020 ........... Parts of electric welding machines and apparatus
+85159040 ........... Parts of electric soldering or brazing machines & apparatus, & electric apparatus for
+hot spraying of metals or sintered metal carbides
+85192000 ........... Sound recording or reproducing apparatus operated by coins, bank notes, bank cards,
+tokens or other means of payment
+85198110 ........... Transcribing machines
+85198125 ........... Cassette players (non-recording), nesoi
+85232910 ........... Unrecorded magnetic media
+85232920 ........... Pre-recorded magnetic tapes for reproducing phenomena other than sound or image
+85232930 ........... Pre-recorded magnetic tapes, of a width not exceeding 4 mm, of news sound
+recording relating to current events
+85232940 ........... Pre-recorded magnetic tapes, of a width not exceeding 4 mm, nesoi
+85232950 ........... Pre-recorded magnetic video tape recordings of a width exceeding 4 mm but not
+exceeding 6.5 mm
+85232960 ........... Pre-recorded magnetic tapes of a width exceeding 4 mm but not exceeding 6.5 mm,
+nesoi
+85232970 ........... Pre-recorded magnetic video tape recordings of a width exceeding 6.5 mm
+85232980 ........... Pre-recorded magnetic tapes of a width exceeding 6.5 mm, nesoi
+85232990 ........... Pre-recorded magnetic media other than tape, nesoi
+85234100 ........... Unrecorded optical media
+85234920 ........... Recorded optical media, for reproducing phenomena other than sound or image
+85234930 ........... Recorded optical media, for reproducing sound only
+85234950 ........... Recorded optical media, nesoi
+85238010 ........... Phonograph records
+85238020 ........... Discs, tapes, solid-state non-volatile storage devices, "smart cards" and other media
+for the recording of sound or of other phenomena, whet
+85255070 ........... Transmission apparatus for radiobroadcasting
+85256010 ........... Transceivers
+44
+
+85256020 ........... Transmission apparatus incorporating reception apparatus, other than transceivers
+85258010 ........... Television cameras, gyrostabilized
+85258020 ........... Television cameras, studio type, other than shoulder-carried or other portable
+cameras
+85261000 ........... Radar apparatus
+85269100 ........... Radio navigational aid apparatus, other than radar
+85269250 ........... Radio remote control apparatus other than for video game consoles
+85279915 ........... Radio receivers, NESOI
+85279940 ........... Reception apparatus for radiobroadcasting, NESOI
+85284905 ........... Incomplete or unfinished color video monitors, presented w/o a display device,
+incorp. VCR or player
+85284910 ........... Incomplete or unfinished color video monitors, presented w/o a display device, not
+incorp. VCR or player
+85284925 ........... Non-high definition color video monitors, nonprojection type, w/CRT, video display
+diagonal not over 34.29 cm, not incorp. VCR or player
+85284930 ........... Non-high definition color video monitors, nonprojection, w/CRT, video display diag. ov
+34.29 cm but n/ov 35.56 cm, not incorp. VCR or player
+85284940 ........... Non-high definition color video monitors, nonprojection type, w/CRT, video display
+diagonal over 35.56 cm, not incorporating VCR or player
+85284950 ........... Non-high definition color video monitors, projection type, with cathode-ray tube, not
+incorporating VCR or player
+85284965 ........... High definition color video monitors, nonprojection type, with cathode-ray tube, not
+incorporating VCR or player
+85284970 ........... High definition color video monitors, projection type, with cathode-ray tube,
+incorporating VCR or player
+85284975 ........... High definition color video monitors, projection type, with cathode-ray tube, not
+incorporating VCR or player
+85285923 ........... Color video monitors w/flat panel screen, video display diagonal > 34.29 cm,
+incorporating VCR or player, not subject US note 13
+85285925 ........... Color video monitors w/flat panel screen, video display diagonal n/ov 34.29 cm, not
+incorporate VCR or player
+85285933 ........... Color video monitors w/flat panel screen, video display diagonal > 34.29 cm, not with
+VCR/player, not subj US note 13
+85285945 ........... Color video monitors nesoi, with video display diagonal not over 34.29 cm, not
+incorporating VCR or player
+85285960 ........... Black and white or other monochrome video monitors, other
+85286915 ........... Non-high definition color video projectors, with a cathode-ray tube, incorporating VCR
+or player
+85286925 ........... High definition color video projectors, with a cathode-ray tube, incorporating VCR or
+player
+85286940 ........... Color video projectors w/flat panel screen, video display diagonal over 34.29 cm,
+incorporating VCR or player
+85286955 ........... Color video projectors nesoi, incorporating video recording or reproducing apparatus
+85286960 ........... Color video projectors nesoi, not incorporating a video recording or reproducing
+apparatus
+45
+
+85286970 ........... Black and white or other monochrome video projectors
+85287110 ........... Reception apparatus for television, not designed to incorporate a video display or
+screen, incorporating video recording or reproducing appa
+85287130 ........... TV reception printed circuit assemblies incorporating a tuner, of a kind used with ADP
+machines of heading 8471, nesoi
+85287208 ........... Incomplete or unfinished color tv reception apparatus, presented w/o a display
+device, n/incorp. VCR or player
+85287216 ........... Non-high def. color television reception app., nonprojection, w/CRT, display diag. ov
+34.29 cm but n/ov 35.56 cm, incorp. VCR or player
+85287232 ........... Non-high definition color television reception apparatus, nonprojection, w/CRT, video
+display diag. ov 35.56 cm, not incorp. a VCR or player
+85287248 ........... High definition color television reception apparatus, nonprojection, with cathode-ray
+tube, not incorporating a VCR or player
+85287252 ........... High definition color television reception apparatus, projection type, with cathode-ray
+tube, incorporating a VCR or player
+85287256 ........... High definition color television reception apparatus, projection type, with cathode-ray
+tube, not incorporating a VCR or player
+85287262 ........... Color television reception apparatus w/flat panel screen, video display diagonal n/ov
+34.29 cm, incorporating a VCR or player
+85287264 ........... Color television reception apparatus w/flat panel screen, video display diagonal over
+34.29 cm, incorporating a VCR or player
+85287280 ........... Color television reception apparatus nesoi, video display diagonal over 34.29 cm,
+incorporating a VCR or player
+85287297 ........... Color television reception apparatus nesoi, video display diagonal over 34.29 cm, not
+incorporating a VCR or player, nesoi
+85291040 ........... Radar, radio navigational aid and radio remote control antennas and antenna
+reflectors, and parts suitable for use therewith
+85299005 ........... PCBs and ceramic substrates and subassemblies thereof, for color TV, with
+components listed in add. US note 4, chap. 85
+85299006 ........... PCBs and ceramic substrates and subassemblies thereof, for color TV, not with
+components listed in add. US note 4, chap. 85
+85299009 ........... Printed circuit assemblies for television cameras
+85299016 ........... Printed circuit assemblies which are subassemblies of radar, radio nav. aid or remote
+control apparatus, of 2 or more parts joined together
+85299019 ........... Printed circuit assemblies, nesi, for radar, radio navigational aid or radio remote
+control apparatus
+85299022 ........... Other printed circuit assemblies suitable for use solely or principally with the
+apparatus of headings 8525 to 8528, nesi
+85299024 ........... Transceiver assemblies for the apparatus of subheading 8526.10, other than printed
+circuit assemblies
+85299029 ........... Tuners for television apparatus, other than printed circuit assemblies
+85299033 ........... Subassies w/2 or more PCBs or ceramic substrates, as spec'd in add. US note 9 ch. 85,
+for color TV, w/components in add. US note 4, ch. 85
+85299046 ........... Combinations of PCBs and ceramic substrates and subassemblies thereof for color TV,
+w/components listed in add. U.S. note 4, chap. 85
+46
+
+85299063 ........... Parts of printed circuit assemblies (including face plates and lock latches) for television
+cameras
+85299068 ........... Parts of printed circuit assemblies (including face plates and lock latches) for television
+apparatus other than television cameras
+85299073 ........... Parts of printed circuit assemblies (including face plates and lock latches) for radar,
+radio navigational aid or radio remote control app.
+85299078 ........... Mounted lenses for use in closed circuit television cameras, separately imported, w/
+or w/o attached elec. connectors or motors
+85299081 ........... Other parts of television cameras, nesi
+85299083 ........... Other parts of television apparatus (other than television cameras), nesi
+85299089 ........... Subassies w/2 or more PCBs or ceramic substrates, exc. tuners or converg. ass'ies, for
+color TV, not w/components in add. US note 4, ch. 85
+85299093 ........... Parts of television apparatus, nesi
+85299095 ........... Assemblies and subassemblies of radar, radio navigational aid or remote control
+apparatus, of 2 or more parts joined together, nesi
+85299097 ........... Parts suitable for use solely or principally in radar, radio navigational aid or radio
+remote control apparatus, nesi
+85299099 ........... Parts suitable for use solely or principally with the apparatus of headings 8525 to
+8528, nesi
+85301000 ........... Electrical signaling, safety or traffic control equipment for railways, streetcar lines or
+subways
+85308000 ........... Electrical signaling, safety or traffic control equipment for roads, inland waterways,
+parking facilities, port installations or airfields
+85309000 ........... Parts for electrical signaling, safety or traffic control equipment
+85321000 ........... Fixed electrical capacitors designed for use in 50/60 Hz circuits and having a reactive
+power handling capacity of not less than 0.5 kvar
+85322100 ........... Tantalum fixed capacitors
+85322200 ........... Aluminum electrolytic fixed capacitors
+85322300 ........... Ceramic dielectric fixed capacitors, single layer
+85322400 ........... Ceramic dielectric fixed capacitors, multilayer
+85322500 ........... Dielectric fixed capacitors of paper or plastics
+85322900 ........... Fixed electrical capacitors, nesi
+85323000 ........... Variable or adjustable (pre-set) electrical capacitors
+85329000 ........... Parts of electrical capacitors, fixed, variable or adjustable (pre-set)
+85331000 ........... Electrical fixed carbon resistors, composition or film types
+85332100 ........... Electrical fixed resistors, other than composition or film type carbon resistors, for a
+power handling capacity not exceeding 20 W
+85332900 ........... Electrical fixed resistors, other than composition or film type carbon resistors, for a
+power handling capacity exceeding 20 W
+85333100 ........... Electrical wirewound variable resistors, including rheostats and potentiometers, for a
+power handling capacity not exceeding 20 W
+85334040 ........... Metal oxide resistors
+85334080 ........... Electrical variable resistors, other than wirewound, including rheostats and
+potentiometers
+85339080 ........... Other parts of electrical resistors, including rheostats and potentiometers, nesi
+47
+
+85351000 ........... Fuses, for a voltage exceeding 1,000 V
+85352100 ........... Automatic circuit breakers, for a voltage of less than 72.5 kV, but exceeding 1,000 V
+85352900 ........... Automatic circuit breakers, for a voltage of 72.5 kV or more
+85353000 ........... Isolating switches and make-and-break switches, for a voltage exceeding 1,000 V
+85359040 ........... Electrical motor starters and electrical motor overload protector, for a voltage
+exceeding 1,000 V
+85359080 ........... Electrical apparatus nesi for switching, protecting, or making connections for electrical
+circuits, for a voltage exceeding 1,000 V, nesi
+85361000 ........... Fuses, for a voltage not exceeding 1,000 V
+85362000 ........... Automatic circuit breakers, for a voltage not exceeding 1,000 V
+85363040 ........... Electrical motor overload protectors, for a voltage not exceeding 1,000 V, nesi
+85364100 ........... Relays for switching, protecting or making connections to or in electrical circuits, for a
+voltage not exceeding 60 V
+85364900 ........... Relays for switching, protecting or making connections to or in electrical circuits, for a
+voltage exceeding 60 but not exceeding 1,000 V
+85365040 ........... Electrical motor starters (which are switches), for a voltage not exceeding 1,000 V
+85365090 ........... Switches nesoi, for switching or making connections to or in electrical circuits, for a
+voltage not exceeding 1,000 V
+85366940 ........... Connectors: coaxial, cylindrical multicontact, rack and panel, printed circuit, ribbon or
+flat cable, for a voltage not exceeding 1,000 V
+85369040 ........... Electrical terminals, electrical splicers and electrical couplings, wafer probers, for a
+voltage not exceeding 1,000 V
 85369060 ........... Battery clamps used in motor vehicles of headings 8702, 8703, 8704, or 8711
+85369085 ........... Other electrical apparatus nesi, for switching or making connections to or in electrical
+circuits, for a voltage not exceeding 1,000 V, nesoi
+85371060 ........... Boards, panels, etc., equipped with apparatus for electric control, for a voltage not
+exceeding 1,000, motor control centers
+85371080 ........... Touch screens without display capabilities for incorporation in apparatus having a
+display
+85372000 ........... Boards, panels, consoles, desks, cabinets and other bases, equipped with apparatus
+for electric control, for a voltage exceeding 1,000 V
+85381000 ........... Parts of boards, panels, consoles, desks, cabinets and other bases for the goods of
+heading 8537, not equipped with their apparatus
+85389040 ........... Parts for articles of 8535.90.40, 8536.30.40 or 8536.50.40, of ceramic or metallic
+materials, mech. or elec. reactive to changes in temp.
+85389060 ........... Molded parts nesi, suitable for use solely or principally with the apparatus of heading
+8535, 8536 or 8537
+85389081 ........... Other parts nesi, suitable for use solely or principally with the apparatus of heading
+8535, 8536 or 8537
+85392920 ........... Electrical filament lamps, voltage not exceeding 100 V, having glass envelopes n/o
+6.35 mm in diameter, suitable in surgical instruments
+85392930 ........... Electrical filament lamps nesi, designed for a voltage not exceeding 100 V, excluding
+ultraviolet and infrared lamps
+85394100 ........... Arc lamps
+85399000 ........... Parts of electrical filament or discharge lamps
+48
+
+85407910 ........... Klystron tubes
+85407920 ........... Microwave tubes (other than magnetrons or klystrons) excluding grid-controlled
+tubes
+85408900 ........... Thermionic, cold cathode or photocathode tubes, nesi
+85412100 ........... Transistors, other than photosensitive transistors, with a dissipation rating of less than
+1 W
+85412900 ........... Transistors, other than photosensitive transistors, with a dissipation rating of 1 W or
+more
+85413000 ........... Thyristors, diacs and triacs, other than photosensitive devices
+85414020 ........... Light-emitting diodes (LED's)
+85414070 ........... Photosensitive transistors
+85414080 ........... Photosensitive semiconductor devices nesi, optical coupled isolators
+85414095 ........... Photosensitive semiconductor devices nesi, other
+85415000 ........... Semiconductor devices other than photosensitive semiconductor devices, nesi
+85416000 ........... Mounted piezoelectric crystals
+85419000 ........... Parts of diodes, transistors, similar semiconductor devices, photosensitive
+semiconductor devices, LED's and mounted piezoelectric crystals
+85431000 ........... Electrical particle accelerators
+85432000 ........... Electrical signal generators
+85433020 ........... Electrical machines and apparatus for electroplating, electrolysis, or electrophoresis
+for making printed circuits
+85433090 ........... Other electrical machines and apparatus for electroplating, electrolysis, or
+electrophoresis
+85437020 ........... Physical vapor deposition apparatus, nesoi
+85437042 ........... Flight data recorders
+85437060 ........... Electrical machines and apparatus nesoi, designed for connection to telegraphic or
+telephonic apparatus, instruments or networks
+85437080 ........... Microwave amplifiers
+85437095 ........... Touch screens without display capabilities for incorporation in apparatus having a
+display
+85437097 ........... Plasma cleaner machines that remove organic contaminants from electron
+microscopy specimens and holders
+85439012 ........... Parts of physical vapor deposition apparatus of subheading 8543.70
+85439015 ........... Assemblies and subassemblies for flight data recorders, consisting of 2 or more parts
+pieces fastened together, printed circuit assemblies
+85439035 ........... Assemblies and subassemblies for flight data recorders, consisting of 2 or more parts
+pieces fastened together, not printed circuit assys.
+85439065 ........... Printed circuit assemblies of flat panel displays other than for reception apparatus for
+television of heading 8528
+85439068 ........... Printed circuit assemblies of electrical machines and apparatus, having individual
+functions, nesoi
+85441100 ........... Insulated (including enameled or anodized) winding wire, of copper
+85441900 ........... Insulated (including enameled or anodized) winding wire, other than of copper
 85443000 ........... Insulated ignition wiring sets and other wiring sets of a kind used in vehicles, aircraft
-86040000 ........... Railway or tramway maintenance or service vehicles, whether or not self-propelled
-86071200 ........... Parts of railway/tramway locomotives/rolling stock, truck assemblies for other than
-self-propelled vehicles
-86071990 ........... Parts of railway/tramway locomotives/rolling stock, parts of truck assemblies for selfpropelled
-vehicles or for non-self propelled nesoi
-86072150 ........... Parts of railway/tramway locomotives/rolling stock, air brakes & parts thereof for selfpropelled
-vehicles or non-self-propelled stock nesoi
-86072950 ........... Parts of railway/tramway locomotives/rolling stock, pts of brakes (o/th air brakes) for
-self-propelled vehicles or non-self-propelled nesoi
-87021031 ........... Motor vehicles w/diesel engine, to transport 16 or more persons, incl driver
-87021061 ........... Motor vehicles w/diesel engine, to transport 10 to 15 persons, incl driver
-87022031 ........... Motor vehicles w/diesel engine & electric motor, to transport 16 or more persons, incl
-driver
-87022061 ........... Motor vehicles w/diesel engine & electric motor, to transport 10 to 15 persons, incl
-driver
-87023031 ........... Motor vehicles w/spark-ign. IC recip. piston engine & electric motor, to transport 16
-or more persons, incl driver
-87023061 ........... Motor vehicles w/spark-ign. IC recip. piston engine & electric motor, to transport 10
-to 15 persons, incl driver
-87024031 ........... Motor vehicles w/electric motor, to transport 16 or more persons, incl driver
-87024061 ........... Motor vehicles w/electric motor, to transport 10 to 15 persons, incl driver
-87029031 ........... Motor vehicles nesoi, to transport 16 or more persons, incl driver
-87029061 ........... Motor vehicles nesoi, to transport 10 to 15 persons, incl driver
-87031010 ........... Motor vehicles specially designed for traveling on snow
-87031050 ........... Golf carts and similar motor vehicles
-87032101 ........... Motor vehicles to transport persons, w/spark-ign. IC recip. piston engine, w/cyl
-capacity <= 1, 000 cc
-87032201 ........... Motor vehicles to transport persons, w/spark-ign. IC recip. piston engine, w/cyl
-capacity > 1, 000cc but <=1, 500cc
-87032301 ........... Motor vehicles to transport persons, w/spark-ign. IC recip. piston engine, w/cyl
-capacity >1, 500cc but <=3, 000cc
-87032401 ........... Motor vehicles to transport persons, w/spark-ign. IC recip. piston engine, w/cyl
-capacity >3, 000cc
-87033101 ........... Motor vehicles to transport persons, w/diesel engines, of a cylinder capacity <= 1,
-500cc
-87033201 ........... Motor vehicles to transport persons, w/diesel engines, of a cylinder capacity > 1,
-500cc but <= 2, 500cc
-87033301 ........... Motor vehicles to transport persons, w/diesel engines, of a cylinder capacity > 2,
-500cc
-87034000 ........... Motor vehicles to transport persons, w/spark-ign. IC recip. piston engine & elec motor
-incapable of charge by plug to external source
-87035000 ........... Motor vehicles to transport persons, w/diesel engine & elec motor incapable of
-charge by plug to external source
-87036000 ........... Motor vehicles to transport persons, w/spark-ign. IC recip. piston engine & elec motor
-capable of charge by plug to external source
-87037000 ........... Motor vehicles to transport persons, w/diesel engine & elec motor capable of charge
-by plug to external source
-87038000 ........... Motor vehicles to transport persons, w/electric motor for propulsion
-87039001 ........... Motor vehicles to transport persons, nesoi
-87041010 ........... Mtr. vehicles for transport of goods, cab chassis for dumpers designed for off-highway
-use
-87041050 ........... Mtr. vehicles for transport of goods, complete dumpers designed for off-highway use
-87042100 ........... Mtr. vehicles for transport of goods, w/compress.-ign. int. combust. recip. piston
-engine, w/G.V.W. not over 5 metric tons
-87042210 ........... Mtr. vehicles for transport of goods, cab chassis, w/compress.-ign. int. combust. recip.
-piston engine, w/G.V.W. o/5 but n/o 20 metric tons
-87042250 ........... Mtr. vehicl. for transport of goods (o/than cab chassis), w/compress.-ign. int.
-combust. recip. piston engine, w/G.V.W. o/5 but n/o 20 mtons
-87042300 ........... Mtr. vehicles for transport of goods, w/compress.-ign. int. combust. recip. piston
-engine, w/G.V.W. over 20 metric tons
-51
-HTS subheading Product Description
-87043100 ........... Mtr. vehicles for transport of goods, w/spark.-ign. int. combust. recip. piston engine,
-w/G.V.W. not over 5 metric tons
-87043200 ........... Mtr. vehicles for transport of goods, w/spark.-ign. int. combust. recip. piston engine,
-w/G.V.W. over 5 metric tons
-87053000 ........... Mtr. vehicles (o/than for transport of persons or of goods), fire fighting vehicles
-87054000 ........... Mtr. vehicles (o/than for transport of persons or of goods), concrete mixers
-87060025 ........... Chassis fitted w/engines, for mtr. vehicles of heading 8705
-87060030 ........... Chassis fitted w/engines, for tractors suitable for agricultural use
-87091100 ........... Electrical, self-propelled, works trucks, not fitted w/lift. equip. and tractors of type
-used on railway station platforms
-87091900 ........... Non-electrical, self-propelled, works trucks, not fitted w/lift. equip. and tractors of
-type used on railway station platforms
-87099000 ........... Parts of self-propelled works trucks, not fitted w/lift. equip. and tractors of the type
-used on railway station platforms
-87112000 ........... Motorcycles (incl. mopeds) and cycles, fitted w/recip. internal-combustion piston
-engine w/capacity o/50 but n/o 250 cc
-87113000 ........... Motorcycles (incl. mopeds) and cycles, fitted w/recip. internal-combustion piston
-engine w/capacity o/250 but n/o 500 cc
-87114030 ........... Motorcycles (incl. mopeds) and cycles, fitted w/recip. internal-combustion piston
-engine w/capacity o/500 cc but n/o 700 cc
-87114060 ........... Motorcycles (incl. mopeds) and cycles, fitted w/recip. internal-combustion piston
-engine w/capacity o/700 cc but n/o 800 cc
-87115000 ........... Motorcycles (incl. mopeds) and cycles, fitted w/recip. internal-combustion piston
-engine w/capacity o/800 cc
-87141000 ........... Pts. & access. for motorcycles (including mopeds)
-88010000 ........... Balloons, dirigibles and non-powered aircraft, gliders and hang gliders
-88021100 ........... Helicopters, with an unladen weight not over 2,000 kg
-88021200 ........... Helicopters, with an unladen weight over 2,000 kg
-88022000 ........... Airplanes and other powered aircraft, nesoi, with an unladen weight not over 2,000 kg
-88023000 ........... Airplanes and other powered aircraft, nesoi, with an unladen weight over 2,000 kg but
-not over 15,000 kg
-88024000 ........... Airplanes and other powered aircraft, nesoi, with an unladen weight over 15,000 kg
-88026030 ........... Communication satellites
-88026090 ........... Spacecraft, including satellites (o/than communication satellites), and suborbital and
-spacecraft launch vehicles
-88031000 ........... Parts of airplanes and other aircraft, propellers and rotors and parts thereof
-88032000 ........... Parts of airplanes and other aircraft, undercarriages and parts thereof
-88033000 ........... Parts of airplanes and helicopters, nesoi
-88039030 ........... Parts of communication satellites
-88039090 ........... Parts of aircraft (o/than airplanes and helicopters), spacecraft (o/than comm. satell.)
-and suborbital and launch vehicles, nesoi
-88051000 ........... Aircraft launching gear and parts thereof; deck-arrestors or similar gear and parts
-thereof
-88052100 ........... Air combat ground flying simulators and parts thereof
-88052900 ........... Ground flying trainers and parts thereof, other than air combat simulators
-52
-HTS subheading Product Description
-89011000 ........... Vessels, designed for the transport of persons, cruise ships, excursion boats and
-similar vessels; ferry boats of all kinds
-89012000 ........... Vessels, designed for the transport of goods, tankers
-89019000 ........... Vessels, designed for the transport of goods or for the transport of both persons and
-goods, nesoi
-89020000 ........... Vessels, fishing; factory ships and other vessels for processing or preserving fishery
-products
-89040000 ........... Vessels, tugs and pusher craft
-89051000 ........... Vessels, dredgers
-89052000 ........... Floating or submersible drilling or production platforms
-89059050 ........... Vessels, light-vessels, fire-floats, floating cranes, & other vessels nesoi, the navigability
-of which is subsidiary to their main function
-89069000 ........... Vessels (including lifeboats other than row boats), nesoi
-89079000 ........... Floating structures nesoi (for example, rafts, other than inflatable rafts, tanks,
-cofferdams, landing stages, buoys and beacons)
-89080000 ........... Vessels and other floating structures for breaking up (scrapping)
-94019010 ........... Parts of seats nesoi, for seats of a kind used for motor vehicles
+or ships
+49
+
+85444930 ........... Insulated electric conductors nesi, of copper, for a voltage not exceeding 1,000 V, not
+fitted with connectors
+85444990 ........... Insulated electric conductors nesi, not of copper, for a voltage not exceeding 1,000 V,
+not fitted with connectors
+85446020 ........... Insulated electric conductors nesi, for a voltage exceeding 1,000 V, fitted with
+connectors
+85446040 ........... Insulated electric conductors nesi, of copper, for a voltage exceeding 1,000 V, not
+fitted with connectors
+85447000 ........... Optical fiber cables made up of individually sheathed fibers

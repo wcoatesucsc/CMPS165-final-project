@@ -122,7 +122,7 @@ var svg = d3.select("body")
 /*
   Mike Bostock's stacked Bar Chart example: 
   */
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 25, right: -900, bottom: 230, left: 1000},
     width = +svg.attr("width") - margin.left - margin.right - 1000,
     height = +svg.attr("height") - margin.top - margin.bottom - 200,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -149,7 +149,13 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
 
   var keys = data.columns.slice(1);
 
-  data.sort(function(a, b) { return b.total - a.total; });
+  //data.sort(function(a, b) { return b.total - a.total; });
+  data.sort(function(a, b) { console.log(a.State); 
+                             if(a.State > b.State) return 1;
+                             if(b.State > a.State) return -1;
+                             return 0;
+                           });
+    
   x.domain(data.map(function(d) { return d.State; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
   z.domain(keys);
@@ -182,8 +188,10 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("Population");
+      .text("US Imports ($1000)");
 
+    
+    
   var legend = g.append("g")
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
@@ -308,7 +316,7 @@ d3.json("gz_2010_us_050_00_500k.json", function(json){
 
 // prototype bar chart
 //Original data
-
+/*
 var stackedBar = true;
 
 if(stackedBar){
@@ -387,3 +395,4 @@ if(stackedBar){
 }
 
 
+*/

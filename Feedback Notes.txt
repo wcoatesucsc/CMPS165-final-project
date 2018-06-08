@@ -79,3 +79,19 @@ Karthik -
 	make color differences more clear
 	increase stroke for state borders, not county borders
 	do stacked bar chart from WSJ
+
+--------------------------------------------------------
+Thursday, June 7 in class feedback
+
+Chris -
+	if you put side by side, look out for width of bar, labels, etc
+
+Janesh - 
+	
+
+Suresh -
+	
+
+Karthik -
+	scott murray script in book, chloropleth example in ch4 or 5
+	.toString()

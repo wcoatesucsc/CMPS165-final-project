@@ -59,7 +59,5 @@ def read_aluminum():
 						if(employment!='0'):
 							print(json_fips+":"+employment)
 
-
-
 #read_steel()
-read_aluminum()
+#read_aluminum()

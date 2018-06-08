@@ -11,7 +11,6 @@
             <p style="text-align: center"><strong><span id="tooltipheader">County, State</span></strong></p>
 			<p>
 
-
                 <p style="text-align:left;">
                     Steel Workers:
                     <span style="float:right;">132</span>
@@ -32,8 +31,8 @@
         </div>
         <div class="visualization container">
             <script type="text/javascript" src="prototype.js"></script>
-
-            <div id="positive" style="margin-left: 55%; top: 100px; position:static">
+<div style="margin-left: 13%;">
+            <div id="positive" style="margin-left: 0%; top: 100px; position:static; display: inline-block">
                 <input 
                 name="positive" 
                 type="button" 
@@ -41,9 +40,13 @@
                 class="rounded green"
                 onclick="updateColorGreen()"
                 />
+            <form>
+                <input type="radio" name="commodity" value="Steel" onclick="radioUpdate()" checked> Steel<br>
+                <input type="radio" name="commodity" value="Aluminum" onclick="radioUpdate()"> Aluminum<br>
+            </form>
             </div>
-         
-            <div id="negative" style="margin-left: 55%; top: 100px; position:static">
+        
+            <div id="negative" style="margin-left: 25%; display: inline-block">
                 <input 
                 name="negative" 
                 type="button" 
@@ -51,14 +54,17 @@
                 class="rounded red"
                 onclick="updateColorRed()"
                 />
-            </div>
-
-            <form style="margin-left:55%; margin-top: 20px;">
-                <input type="radio" name="commodity" value="Steel" onclick="radioUpdate()" checked> Steel<br>
-                <input type="radio" name="commodity" value="Aluminum" onclick="radioUpdate()"> Aluminum<br>
+            <form>
                 <input type="radio" name="commodity" value="Pork" onclick="radioUpdate()"> Pork<br>
                 <input type="radio" name="commodity" value="Soybeans" onclick="radioUpdate()"> Soybeans
             </form>
+            </div>
+    
+</div>
+           
+         
+            
+
 
         </div>
     <div class="container">

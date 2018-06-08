@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stupid.css"> 
+    <script type= "text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <title>Phase III</title>
+</head>
+<body>
+        <!--using textbook version of tooltip instead of stupid.css-->
+		<div id="tooltip" class="hidden">
+            <p style="text-align: center"><strong><span id="tooltipheader">County, State</span></strong></p>
+			<p>
+
+                <p style="text-align:left;">
+                    Steel Workers:
+                    <span style="float:right;">132</span>
+                </p>
+
+                <p style="text-align:left;">
+                    % of workforce:
+                    <span style="float:right;">15%</span>
+                </p>
+
+
+		</div>
+        <div class="padded center">
+            <h3>Concentration of Industries Affected by a Trade War</h3>
+
+            The purpose of this project is to visually demonstrate how large of an impact a trade war between China and the United States may have. The visualization is intended for any groups affected by the tariffs and those concerned with global trade relations. The visualization can also aid economists in getting a better graphic representation of a potential trade war.
+            <h3>Prototype Visualization</h3>
+        </div>
+        <div class="visualization container">
+            <script type="text/javascript" src="prototype.js"></script>
+<div style="margin-left: 13%;">
+            <div id="positive" style="margin-left: 0%; top: 100px; position:static; display: inline-block">
+                <input 
+                name="positive" 
+                type="button" 
+                value="Positive impact"
+                class="rounded green"
+                onclick="updateColorGreen()"
+                />
+            <form>
+                <input type="radio" name="commodity" value="Steel" onclick="radioUpdate()" checked> Steel<br>
+                <input type="radio" name="commodity" value="Aluminum" onclick="radioUpdate()"> Aluminum<br>
+                <input type="radio" name="commodity" value="Consumer Electronics/High-Tech" onclick="radioUpdate()"> Consumer Electronics/High-Tech<br>
+            </form>
+            </div>
+        
+            <div id="negative" style="margin-left: 25%; display: inline-block">
+                <input 
+                name="negative" 
+                type="button" 
+                value="Negative impact"
+                class="rounded red"
+                onclick="updateColorRed()"
+                />
+            <form>
+                <input type="radio" name="commodity" value="Pork" onclick="radioUpdate()"> Pork<br>
+                <input type="radio" name="commodity" value="Soybeans" onclick="radioUpdate()"> Soybeans<br>
+                <input type="radio" name="commodity" value="Transportation" onclick="radioUpdate()"> Transportation <br>
+            </form>
+            </div>
+    
+</div>
+           
+         
+            
+
+
+        </div>
+    <div class="container">
+
+        <div class="center">
+            William Coates (wcoates@ucsc.edu)</br>
+            Kunal Dhillon (kusdhill@ucsc.edu)</br>
+            Xianlin Shao (xshao7@ucsc.edu)</br> 
+            in collaboration with Suresh K Lodha, Karthik Balakrishna, Christopher Bui and Janesh Chhabra.</br></br>
+
+            <a href="https://github.com/wcoatesucsc/CMPS165-final-project" target="_blank">GitHub Link</a></br>
+
+            Designed for CMPS 165: Data programming for Visualization, Spring 2018
+        </div>
+        </br>
+        </br>
+        <footer class="black container padded">
+            <div class="quarter compressible center">
+                <h6>Files</h6>
+                <a href="https://github.com/wcoatesucsc/CMPS165-final-project/blob/master/phaseIII/prototype.js" target="_blank">prototype.js</a></br>
+                <a href="https://github.com/wcoatesucsc/CMPS165-final-project/blob/master/phaseIII/gz_2010_us_050_00_500k.json" target="_blank">us_geomap.json</a></br>
+            </div>
+            <div class="quarter compressible center">
+                <h6>Visual Sources</h6>
+                <a href="https://www.brookings.edu/blog/the-avenue/2018/04/09/how-chinas-tariffs-could-affect-u-s-workers-and-industries/" target="_blank">Brookings Institution</a></br>
+                <a href="https://www.spglobal.com/marketintelligence/en/news-insights/blog/companies-and-sectors-most-impacted-by-u-s-chinese-tariffs" target="_blank">S&amp;P Global</a></br>
+            </div>
+            <div class="quarter compressible center">
+                <h6>Code Sources</h6>
+                <a href="https://mdipierro.github.io/stupid.css/index.html" target="_blank">CSS: stupid.css</a> by Massimo Di Pierro<br>
+                <a href="http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3" target="_blank">Color Brewer 2.0</a> by Cynthia Brewer, Mark Harrower<br>
+            </div>
+            <div class="quarter compressible center">
+                <h6>Data Sources</h6>
+                <a href="https://www.farmersforfreetrade.com/wp-content/uploads/2018/03/retaliation-list-232-1.pdf" target="_blank">China's retaliation list of U.S. products</a>
+                <a href="https://ustr.gov/sites/default/files/files/Press/Releases/301FRN.pdf" target="_blank">Chinese goods with new tariffs</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

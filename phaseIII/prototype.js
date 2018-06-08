@@ -137,7 +137,7 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(['rgb(228,26,28)','rgb(55,126,184)','rgb(77,175,74)','rgb(152,78,163)']);
 
 
 d3.csv("bostockcsv.csv", function(d, i, columns) {

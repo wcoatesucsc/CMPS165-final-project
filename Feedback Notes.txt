@@ -87,10 +87,13 @@ Chris -
 	if you put side by side, look out for width of bar, labels, etc
 
 Janesh - 
-	
+	perhaps a different color scale
+	try using a pastel scale, want it to look different from the geomap
 
 Suresh -
-	
+	Make China red,
+	specify year on geomap (could also say something like 'Current Year')
+	consider doing stacked area chart, put year on left hand side	
 
 Karthik -
 	scott murray script in book, chloropleth example in ch4 or 5

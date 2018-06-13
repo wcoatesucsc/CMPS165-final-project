@@ -121,6 +121,7 @@ var svg = d3.select("body")
 
 /*
   Mike Bostock's stacked Bar Chart example: 
+  https://bl.ocks.org/mbostock/3886208
   */
 var margin = {top: 25, right: -900, bottom: 230, left: 1000},
     width = +svg.attr("width") - margin.left - margin.right - 1000,
@@ -128,16 +129,15 @@ var margin = {top: 25, right: -900, bottom: 230, left: 1000},
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-var x = d3.scaleBand()
+var barChartX = d3.scaleBand()
     .rangeRound([0, width])
     .paddingInner(0.05)
     .align(0.1);
 
-var y = d3.scaleLinear()
+var barChartY = d3.scaleLinear()
     .rangeRound([height, 0]);
 
-var z = d3.scaleOrdinal()
-
+var barChartColor = d3.scaleOrdinal()
 .range(['rgb(152,78,163)','rgb(55,126,184)','rgb(228,26,28)','rgb(77,175,74)']);
 
 
@@ -159,27 +159,27 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
                              return 0;
                            });
     
-  x.domain(data.map(function(d) { return d.State; }));
-  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
-  z.domain(keys);
+  barChartX.domain(data.map(function(d) { return d.State; }));
+  barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+  barChartColor.domain(keys);
 
   g.append("g")
     .selectAll("g")
     .data(d3.stack().keys(keys)(data))
     .enter().append("g")
-      .attr("fill", function(d) { return z(d.key); })
+      .attr("fill", function(d) { return barChartColor(d.key); })
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("x", function(d) { return x(d.data.State); })
-      .attr("y", function(d) { return y(d[1]); })
-      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-      .attr("width", x.bandwidth());
+      .attr("x", function(d) { return barChartX(d.data.State); })
+      .attr("y", function(d) { return barChartY(d[1]); })
+      .attr("height", function(d) { return barChartY(d[0]) - barChartY(d[1]); })
+      .attr("width", barChartX.bandwidth());
 
   g.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(10))
+      .call(d3.axisBottom(barChartX))
     // rotate text: from a block by d3noob:
     // https://bl.ocks.org/d3noob/3c040800ff6457717cca586ae9547dbf
       .selectAll("text")
@@ -190,10 +190,10 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
 
   g.append("g")
       .attr("class", "axis")
-      .call(d3.axisLeft(y).ticks(null, "s"))
+      .call(d3.axisLeft(barChartY).ticks(null, "s"))
     .append("text")
       .attr("x", 2)
-      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("y", barChartY(barChartY.ticks().pop()) + 0.5)
       .attr("dy", "0.32em")
       .attr("fill", "#000")
       .attr("font-weight", "bold")
@@ -215,7 +215,7 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
       .attr("x", width - 19)
       .attr("width", 19)
       .attr("height", 19)
-      .attr("fill", z);
+      .attr("fill", barChartColor);
 
   legend.append("text")
       .attr("x", width - 24)

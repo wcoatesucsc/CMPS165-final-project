@@ -427,14 +427,14 @@ function drawGeomap(commodity){
       field="oilseed_employment"
     }
     else if(commodity == "transportation"){
-      field=""
+      field="transportation_employment"
     }
     else{
         console.log("somehow you selected a commodity that we haven't graphed");
         return;
     }
 
-  d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){
+  d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){
     values = [];
     var min = 0;
     var max = 0;

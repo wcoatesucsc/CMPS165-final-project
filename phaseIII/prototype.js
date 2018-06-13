@@ -224,18 +224,21 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
 
 
 
-/*
-  Bostock bar chart over
-  */
+/* =====================================================================
+    BAR CHART ALL ABOVE THIS POINT
+    GEOMAP ALL BELOW THIS POINT
+*
+*
+*
+*
+*
+*
+*
+*
+   ====================================================================*/
 
-//Define Tooltip here
-/* initialize the tooltip so that we can move it around
-       later */
-/*
-var div = d3.select("body").append("div")
-.attr("class", "tooltip")
-.classed("hidden", true);
-*/
+
+
 
 
 
@@ -278,9 +281,12 @@ function updateColorRed() {
 // radio button input, changes value of commodity string based on selected button
 // value is Steel by default
 var commodity = "Steel";
+
+
 function radioUpdate() {
     d3.selectAll("input[name='commodity']").on("change", function(){
         var commodity = this.value;
+        console.log("commodity = " + commodity);
     });
 }
 

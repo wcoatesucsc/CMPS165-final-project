@@ -188,7 +188,7 @@ d3.csv(path, function(d, i, columns){
     
       console.log(keys);
 
-      barChartX.domain(data.map(function(d) { /*console.log("mapping: " + d.country);*/ return d.country; }));
+      barChartX.domain(data.map(function(d) { /*console.log("mapping: " + d.country);*/ return d.country.substring(5); }));
     
       barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
     
@@ -202,7 +202,7 @@ d3.csv(path, function(d, i, columns){
         .selectAll("rect")
         .data(function(d) { return d; })
         .enter().append("rect")
-          .attr("x", function(d) { return barChartX(d.data.country); })
+          .attr("x", function(d) { return barChartX(d.data.country.substring(5)); })
           .attr("y", function(d) { return barChartY(d[1]); })
           .attr("height", function(d) { return barChartY(d[0]) - barChartY(d[1]); })
           .attr("width", barChartX.bandwidth());

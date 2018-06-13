@@ -142,7 +142,85 @@ var barChartColor = d3.scaleOrdinal()
 .range(['rgb(228,26,28, 1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)']);
 
 
+/*=======================================================================
+ *
+ * Radio Button Functionality
+ *
+ *=====================================================================*/
 
+/*
+ Functions for when each radio button is called
+ */
+function updateSteel(){
+    console.log("update steel");
+    updateColorGreen();
+}
+function updateAluminum(){
+    console.log("update aluminum");
+    updateColorGreen();
+}
+function updateHighTech(){
+    console.log("update high tech");
+    updateColorGreen();
+}
+function updatePork(){
+    console.log("update pork");
+    updateColorRed();
+}
+function updateSoybeans(){
+    console.log("update Soybeans");
+    updateColorRed();
+}
+function updateTransportation(){
+    console.log("update transportation");
+    updateColorRed();
+}
+
+// button input, changes color value depending on clicked button
+function updateColorGreen() {
+    console.log("update color green")
+    var color = d3.scaleQuantize()
+    .domain([0, 10])
+    .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+
+    svg.selectAll("path#map")
+    .style("fill", function(d){
+        let rand = Math.round(Math.random() * 10);
+        return color(rand);
+    })
+}
+
+function updateColorRed() {
+    console.log("update color red")
+    var color = d3.scaleQuantize()
+    .domain([0, 10])
+    .range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)']);
+    
+    svg.selectAll("path#map")
+    .style("fill", function(d){
+        let rand = Math.round(Math.random() * 10);
+        return color(rand);
+    })   
+}
+
+// radio button input, changes value of commodity string based on selected button
+// value is Steel by default
+var commodity = "Steel";
+
+
+function radioUpdate() {
+    d3.selectAll("input[name='commodity']").on("change", function(){
+        var commodity = this.value;
+        console.log("commodity = " + commodity);
+    });
+}
+
+
+/*=======================================================================
+ *
+ * Bar Chart
+ *
+ *=====================================================================*/
 
 /*
 d3.csv("bostockcsv.csv", function(d, i, columns) {
@@ -271,45 +349,6 @@ var color = d3.scaleQuantize()
 .domain([0, 10])
 .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
 
-
-// button input, changes color value depending on clicked button
-function updateColorGreen() {
-    console.log("update color green")
-    var color = d3.scaleQuantize()
-    .domain([0, 10])
-    .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
-
-    svg.selectAll("path#map")
-    .style("fill", function(d){
-        let rand = Math.round(Math.random() * 10);
-        return color(rand);
-    })
-}
-
-function updateColorRed() {
-    console.log("update color red")
-    var color = d3.scaleQuantize()
-    .domain([0, 10])
-    .range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)']);
-    
-    svg.selectAll("path#map")
-    .style("fill", function(d){
-        let rand = Math.round(Math.random() * 10);
-        return color(rand);
-    })   
-}
-
-// radio button input, changes value of commodity string based on selected button
-// value is Steel by default
-var commodity = "Steel";
-
-
-function radioUpdate() {
-    d3.selectAll("input[name='commodity']").on("change", function(){
-        var commodity = this.value;
-        console.log("commodity = " + commodity);
-    });
-}
 
 
 d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){

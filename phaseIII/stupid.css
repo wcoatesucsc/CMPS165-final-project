@@ -39,6 +39,15 @@ header, main, footer {display:block; with:100%} /* IE fix */
   h6{font-size:1.0em}
 }
 
+#outer
+{
+    width:100%;
+}
+.inner
+{
+    display: inline-block;
+}
+
 /*** buttons ***/
 .btn, button, [type=button], [type=submit] {padding:0.5em 1em; margin:0 0.5em 0.5em 0; display:inline-block; background-color:#26a69a; color:white}
 .btn:hover, button:hover, [type=button]:hover, [type=submit]:hover {box-shadow:0 0 10px #666; text-decoration:none; cursor:pointer}

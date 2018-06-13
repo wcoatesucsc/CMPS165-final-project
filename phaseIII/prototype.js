@@ -138,29 +138,47 @@ var barChartY = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var barChartColor = d3.scaleOrdinal()
-.range(['rgb(152,78,163)','rgb(55,126,184)','rgb(228,26,28)','rgb(77,175,74)']);
+//.range(['rgb(152,78,163)','rgb(55,126,184)','rgb(228,26,28)','rgb(77,175,74)']);
+.range(['rgb(228,26,28, 1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)']);
 
 
 
 
+/*
 d3.csv("bostockcsv.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
 }, function(error, data) {
+*/
+d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
+    // sums up the values in each column to determine yScale later
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+    
+}, function(error, data){
+    
   if (error) throw error;
 
+   
   var keys = data.columns.slice(1);
+    
+  console.log(keys);
 
   //data.sort(function(a, b) { return b.total - a.total; });
+    /*
   data.sort(function(a, b) { 
                              if(a.State > b.State) return 1;
                              if(b.State > a.State) return -1;
                              return 0;
                            });
+   */
     
-  barChartX.domain(data.map(function(d) { return d.State; }));
+  barChartX.domain(data.map(function(d) { console.log("mapping: " + d.country); return d.country; }));
+    
   barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+    
   barChartColor.domain(keys);
 
   g.append("g")
@@ -171,7 +189,7 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("x", function(d) { return barChartX(d.data.State); })
+      .attr("x", function(d) { return barChartX(d.data.country); })
       .attr("y", function(d) { return barChartY(d[1]); })
       .attr("height", function(d) { return barChartY(d[0]) - barChartY(d[1]); })
       .attr("width", barChartX.bandwidth());
@@ -198,7 +216,7 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("US Imports ($1000)");
+      .text("US Imports ($)");
 
     
     
@@ -206,8 +224,9 @@ d3.csv("bostockcsv.csv", function(d, i, columns) {
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
       .attr("text-anchor", "end")
+      .attr("transform", "translate(50, 0)")
     .selectAll("g")
-    .data(keys.slice().reverse())
+    .data(keys.slice())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 

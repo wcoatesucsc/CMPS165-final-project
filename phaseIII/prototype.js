@@ -282,52 +282,52 @@ function drawBarChart(commodity){
 function updateSteel(){
     console.log("update steel");
     // update geomap
-    updateColorGreen();
+  //  updateColorGreen();
     radioUpdate();
 
     // update bar chart
     drawBarChart("steel");
-    drawGeomap("steel")
+    updateGeomap("steel")
 }
 function updateAluminum(){
     console.log("update aluminum");
-    updateColorGreen();
+ //   updateColorGreen();
     radioUpdate();
 
     drawBarChart("aluminum");
-    drawGeomap("aluminum")
+    updateGeomap("aluminum")
 }
 function updateHighTech(){
     console.log("update high tech");
-    updateColorGreen();
+//    updateColorGreen();
     radioUpdate();
 
     drawBarChart("high tech");
-    drawGeomap("high tech")
+    updateGeomap("high tech")
 }
 function updatePork(){
     console.log("update pork");
-    updateColorRed();
+    //updateColorRed();
     radioUpdate();
 
     drawBarChart("pork");
-    drawGeomap("pork")
+    updateGeomap("pork")
 }
 function updateSoybeans(){
     console.log("update Soybeans");
-    updateColorRed();
+    //updateColorRed();
     radioUpdate();
 
     drawBarChart("soybeans");
-    drawGeomap("soybeans")
+    updateGeomap("soybeans")
 }
 function updateTransportation(){
     console.log("update transportation");
-    updateColorRed();
+   // updateColorRed();
     radioUpdate();
 
     drawBarChart("transportation");
-    drawGeomap("transportation")
+    updateGeomap("transportation")
 }
 
 // button input, changes color value depending on clicked button
@@ -397,18 +397,110 @@ drawBarChart("steel");
 
 
 
-// color scale for showing population density appropriately:
-// the darker the blue, the higher the population density
-// colors from colorbrewer2.org
 var color = d3.scaleQuantize()
 .domain([0, 10])
-.range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+//.range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
 
 
 function drawGeomap(commodity){
 
     // clear old geomap
-  
+    svg.selectAll("path").remove();
+    var field="";
+
+    if(commodity == "steel"){
+      field="steel_employment"
+    }
+    else if(commodity == "aluminum"){
+      field="aluminum_employment"
+    }
+    else if(commodity == "high tech"){
+      field="hightech_employment"
+    }
+    else if(commodity == "pork"){
+      field="pork_employment"
+    }
+    else if(commodity == "soybeans"){
+      field="oilseed_employment"
+    }
+    else if(commodity == "transportation"){
+      field="transportation_employment"
+    }
+    else{
+        console.log("somehow you selected a commodity that we haven't graphed");
+        return;
+    }
+
+  d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){
+    values = [];
+    var min = 0;
+    var max = 0;
+    for (var i = 0; i < json.features.length; i++) {
+        if(typeof json.features[i].properties[field] !== "undefined"){
+          //console.log(json.features[i].properties[field]);
+          values.push(json.features[i].properties[field])
+        }
+     }
+
+    min = Math.min.apply(null, values)
+    max = Math.max.apply(null, values)
+   /*  
+    console.log("commodity = " + commodity);
+    console.log("min= "+min)
+    console.log("max= "+max)
+    */
+    // reset domain of scale
+    color.domain([min, max]);
+
+      svg.selectAll("path")
+      .data(json.features)
+  	  .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("id", "map")
+      .style("fill", function(d){
+          //console.log("filling, d.properties[field] = " + d.properties[field]);    
+          //let rand = Math.round(Math.random() * 10);
+          // if no data, then color grey
+          if(d.properties[field] == undefined){
+              return "rgb(0, 0, 0)";
+          }
+          else{
+              return color(d.properties[field]);
+          }
+      })
+      // tooltips!
+      .on("mouseover", function(d){
+          var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
+          var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
+          
+          
+          //Update the tooltip position and value
+          d3.select("#tooltip")
+            .style("left", xPosition + "px")
+            .style("top", yPosition + "px")
+            .select("#tooltipheader")
+            //.text(d.properties.NAME + " County, ")
+            .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
+          
+          //Show the tooltip
+          d3.select("#tooltip").classed("hidden", false);
+      })
+      .on("mouseout", function(){
+          //Hide the tooltip
+          d3.select("#tooltip").classed("hidden", true);
+      });
+     
+  });
+}
+
+/* 
+ * Instead of redrawing the entire geomap, just 
+ * refill the paths with colors based on the new commodity
+ */
+function updateGeomap(commodity){
+
     var field="";
 
     if(commodity == "steel"){
@@ -444,25 +536,30 @@ function drawGeomap(commodity){
           values.push(json.features[i].properties[field])
         }
      }
+    // calculate the min/max of input to re-scale
+    min = Math.min.apply(null, values);
+    max = Math.max.apply(null, values);
+      
+    // reset domain of scale
+    color.domain([min, max]);
 
-    min = Math.min.apply(null, values)
-    max = Math.max.apply(null, values)
-
-    console.log("min= "+min)
-    console.log("max= "+max)
-
-
+      
+      // re-fill the paths
       svg.selectAll("path")
       .data(json.features)
-  	  .enter()
-      .append("path")
-      .attr("d", path)
-      .attr("id", "map")
       .style("fill", function(d){
-          let rand = Math.round(Math.random() * 10);
-          return color(rand);
+          if(d.properties[field] == undefined){
+              // if no data for a county, paint it black
+              return "rgb(0, 0, 0)";
+          }
+          else{
+              // otherwise, fill it with an appropriate color
+              return color(d.properties[field]);
+          }
       })
+      
       // tooltips!
+      /*
       .on("mouseover", function(d){
           var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
           var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
@@ -483,8 +580,8 @@ function drawGeomap(commodity){
           //Hide the tooltip
           d3.select("#tooltip").classed("hidden", true);
       });
-     
+   */ 
   });
 }
-
+// draw the map for the first time!
 drawGeomap('steel');

@@ -358,7 +358,7 @@ function updateColorRed() {
 
 // radio button input, changes value of commodity string based on selected button
 // value is Steel by default
-var commodity = "Steel";
+var commodity = "Pork";
 
 $("#commodity").hide().html(commodity).fadeIn('fast');
 

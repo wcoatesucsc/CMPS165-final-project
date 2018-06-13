@@ -175,7 +175,7 @@ function drawBarChart(commodity){
 //    d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
 d3.csv(path, function(d, i, columns){
         // sums up the values in each column to determine yScale later
-      for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+      for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]]/1000000000;
       d.total = t;
       return d;
     
@@ -237,7 +237,7 @@ d3.csv(path, function(d, i, columns){
           .attr("fill", "#000")
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
-          .text("US " + importExport + " ($)");
+          .text("US " + importExport + " (in billion dollars)");
 
     
     

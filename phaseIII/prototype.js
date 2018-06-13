@@ -141,93 +141,103 @@ var barChartColor = d3.scaleOrdinal()
 //.range(['rgb(152,78,163)','rgb(55,126,184)','rgb(228,26,28)','rgb(77,175,74)']);
 .range(['rgb(228,26,28, 1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)']);
 
-function drawSteelBarChart(){
-d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
-    // sums up the values in each column to determine yScale later
-  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-  d.total = t;
-  return d;
+function drawBarChart(commodity){
+   
+    //let commodity = "steel";
+    let path = "../Data/US_Imports/";
     
-}, function(error, data){
+    if(commodity == "steel"){
+        path += "Steel_Items_Tariffed/steel_display_transposed.csv";
+    }
     
-  if (error) throw error;
+    
+//    d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
+d3.csv(path, function(d, i, columns){
+        // sums up the values in each column to determine yScale later
+      for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+      d.total = t;
+      return d;
+    
+    }, function(error, data){
+    
+      if (error) throw error;
 
    
-  var keys = data.columns.slice(1);
+      var keys = data.columns.slice(1);
     
-  console.log(keys);
+      console.log(keys);
 
-  barChartX.domain(data.map(function(d) { console.log("mapping: " + d.country); return d.country; }));
+      barChartX.domain(data.map(function(d) { console.log("mapping: " + d.country); return d.country; }));
     
-  barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
+      barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
     
-  barChartColor.domain(keys);
+      barChartColor.domain(keys);
 
-  g.append("g")
-    .selectAll("g")
-    .data(d3.stack().keys(keys)(data))
-    .enter().append("g")
-      .attr("fill", function(d) { return barChartColor(d.key); })
-    .selectAll("rect")
-    .data(function(d) { return d; })
-    .enter().append("rect")
-      .attr("x", function(d) { return barChartX(d.data.country); })
-      .attr("y", function(d) { return barChartY(d[1]); })
-      .attr("height", function(d) { return barChartY(d[0]) - barChartY(d[1]); })
-      .attr("width", barChartX.bandwidth());
+      g.append("g")
+        .selectAll("g")
+        .data(d3.stack().keys(keys)(data))
+        .enter().append("g")
+          .attr("fill", function(d) { return barChartColor(d.key); })
+        .selectAll("rect")
+        .data(function(d) { return d; })
+        .enter().append("rect")
+          .attr("x", function(d) { return barChartX(d.data.country); })
+          .attr("y", function(d) { return barChartY(d[1]); })
+          .attr("height", function(d) { return barChartY(d[0]) - barChartY(d[1]); })
+          .attr("width", barChartX.bandwidth());
 
-  g.append("g")
-      .attr("class", "axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(barChartX))
-    // rotate text: from a block by d3noob:
-    // https://bl.ocks.org/d3noob/3c040800ff6457717cca586ae9547dbf
-      .selectAll("text")
-      .attr("class", "axis")
-      .style("text-anchor", "end")
-      .attr("dx", "-.8em")
-      .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
+      g.append("g")
+          .attr("class", "axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(barChartX))
+        // rotate text: from a block by d3noob:
+        // https://bl.ocks.org/d3noob/3c040800ff6457717cca586ae9547dbf
+          .selectAll("text")
+          .attr("class", "axis")
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
 
-  g.append("g")
-      .attr("class", "axis")
-      .call(d3.axisLeft(barChartY).ticks(null, "s"))
-    .append("text")
-      .attr("x", 2)
-      .attr("y", barChartY(barChartY.ticks().pop()) + 0.5)
-      .attr("dy", "0.32em")
-      .attr("fill", "#000")
-      .attr("font-weight", "bold")
-      .attr("text-anchor", "start")
-      .text("US Imports ($)");
+      g.append("g")
+          .attr("class", "axis")
+          .call(d3.axisLeft(barChartY).ticks(null, "s"))
+        .append("text")
+          .attr("x", 2)
+          .attr("y", barChartY(barChartY.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("font-weight", "bold")
+          .attr("text-anchor", "start")
+          .text("US Imports ($)");
 
     
     
-  var legend = g.append("g")
-      .attr("class", "legend")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", 10)
-      .attr("text-anchor", "end")
-      .attr("transform", "translate(50, 0)")
-    .selectAll("g")
-    .data(keys.slice())
-    .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      var legend = g.append("g")
+          .attr("class", "legend")
+          .attr("font-family", "sans-serif")
+          .attr("font-size", 10)
+          .attr("text-anchor", "end")
+          .attr("transform", "translate(50, 0)")
+        .selectAll("g")
+        .data(keys.slice())
+        .enter().append("g")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-  legend.append("rect")
-      .attr("class", "legend")
-      .attr("x", width - 19)
-      .attr("width", 19)
-      .attr("height", 19)
-      .attr("fill", barChartColor);
+      legend.append("rect")
+          .attr("class", "legend")
+          .attr("x", width - 19)
+          .attr("width", 19)
+          .attr("height", 19)
+          .attr("fill", barChartColor);
 
-  legend.append("text")
-      .attr("class", "legend")
-      .attr("x", width - 24)
-      .attr("y", 9.5)
-      .attr("dy", "0.32em")
-      .text(function(d) { return d; });
-});
+      legend.append("text")
+          .attr("class", "legend")
+          .attr("x", width - 24)
+          .attr("y", 9.5)
+          .attr("dy", "0.32em")
+          .text(function(d) { return d; });
+    });
 
 }
 
@@ -249,7 +259,7 @@ function updateSteel(){
     svg.selectAll("g.axis").remove();
     svg.selectAll("g.legend").remove();
     svg.selectAll("text.legend").remove();
-    drawSteelBarChart();
+    drawBarChart("steel");
 }
 function updateAluminum(){
     console.log("update aluminum");
@@ -317,103 +327,7 @@ function radioUpdate() {
  * Bar Chart
  *
  *=====================================================================*/
-
-/*
-d3.csv("bostockcsv.csv", function(d, i, columns) {
-  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-  d.total = t;
-  return d;
-}, function(error, data) {
-*/
-
-d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
-    // sums up the values in each column to determine yScale later
-  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-  d.total = t;
-  return d;
-    
-}, function(error, data){
-    
-  if (error) throw error;
-
-   
-  var keys = data.columns.slice(1);
-    
-  console.log(keys);
-
-  barChartX.domain(data.map(function(d) { console.log("mapping: " + d.country); return d.country; }));
-    
-  barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
-    
-  barChartColor.domain(keys);
-
-  g.append("g")
-    .selectAll("g")
-    .data(d3.stack().keys(keys)(data))
-    .enter().append("g")
-      .attr("fill", function(d) { return barChartColor(d.key); })
-    .selectAll("rect")
-    .data(function(d) { return d; })
-    .enter().append("rect")
-      .attr("x", function(d) { return barChartX(d.data.country); })
-      .attr("y", function(d) { return barChartY(d[1]); })
-      .attr("height", function(d) { return barChartY(d[0]) - barChartY(d[1]); })
-      .attr("width", barChartX.bandwidth());
-
-  g.append("g")
-      .attr("class", "axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(barChartX))
-    // rotate text: from a block by d3noob:
-    // https://bl.ocks.org/d3noob/3c040800ff6457717cca586ae9547dbf
-      .selectAll("text")
-      .attr("class", "axis")
-      .style("text-anchor", "end")
-      .attr("dx", "-.8em")
-      .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
-
-  g.append("g")
-      .attr("class", "axis")
-      .call(d3.axisLeft(barChartY).ticks(null, "s"))
-    .append("text")
-      .attr("x", 2)
-      .attr("y", barChartY(barChartY.ticks().pop()) + 0.5)
-      .attr("dy", "0.32em")
-      .attr("fill", "#000")
-      .attr("font-weight", "bold")
-      .attr("text-anchor", "start")
-      .text("US Imports ($)");
-
-    
-    
-  var legend = g.append("g")
-      .attr("class", "legend")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", 10)
-      .attr("text-anchor", "end")
-      .attr("transform", "translate(50, 0)")
-    .selectAll("g")
-    .data(keys.slice())
-    .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-  legend.append("rect")
-      .attr("class", "legend")
-      .attr("x", width - 19)
-      .attr("width", 19)
-      .attr("height", 19)
-      .attr("fill", barChartColor);
-
-  legend.append("text")
-      .attr("class", "legend")
-      .attr("x", width - 24)
-      .attr("y", 9.5)
-      .attr("dy", "0.32em")
-      .text(function(d) { return d; });
-});
-
-
+drawBarChart("steel");
 
 /* =====================================================================
     BAR CHART ALL ABOVE THIS POINT

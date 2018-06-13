@@ -32,33 +32,32 @@
         <div class="visualization container">
             <script type="text/javascript" src="prototype.js"></script>
 <div style="margin-left: 13%;">
-            <div id="positive" style="margin-left: 0%; top: 100px; position:static; display: inline-block">
-                <input 
-                name="positive" 
-                type="button" 
-                value="Positive impact"
-                class="rounded green"
-                onclick="updateColorGreen()"
-                />
+
             <form>
-                <input type="radio" name="commodity" value="Steel" onclick="radioUpdate()" checked> Steel<br>
-                <input type="radio" name="commodity" value="Aluminum" onclick="radioUpdate()"> Aluminum<br>
-                <input type="radio" name="commodity" value="Consumer Electronics/High-Tech" onclick="radioUpdate()"> Consumer Electronics/High-Tech<br>
-            </form>
+            <div id="outer">
+                <div class="inner">
+                    <p><b>Positive impact</b></p>
+                    <input type="radio" name="commodity" value="Steel" onclick="updateColorGreen()" checked> Steel<br>
+                    <input type="radio" name="commodity" value="Aluminum" onclick="updateColorGreen()"> Aluminum<br>
+                    <input type="radio" name="commodity" value="Consumer Electronics/High-Tech" onclick="updateColorGreen()"> Consumer Electronics/High-Tech<br>
+                </div>
+
+
+
+                <div class="inner" style="margin-left:80px;">
+
+                    <p><b>Negative impact</b></p>
+
+                    <input type="radio" name="commodity" value="Pork" onclick="updateColorRed()"> Pork<br>
+                    <input type="radio" name="commodity" value="Soybeans" onclick="updateColorRed()"> Soybeans<br>
+                    <input type="radio" name="commodity" value="Transportation" onclick="updateColorRed()"> Transportation <br>
+                
+                </form>
+            </div>
             </div>
         
-            <div id="negative" style="margin-left: 25%; display: inline-block">
-                <input 
-                name="negative" 
-                type="button" 
-                value="Negative impact"
-                class="rounded red"
-                onclick="updateColorRed()"
-                />
             <form>
-                <input type="radio" name="commodity" value="Pork" onclick="radioUpdate()"> Pork<br>
-                <input type="radio" name="commodity" value="Soybeans" onclick="radioUpdate()"> Soybeans<br>
-                <input type="radio" name="commodity" value="Transportation" onclick="radioUpdate()"> Transportation <br>
+                
             </form>
             </div>
     

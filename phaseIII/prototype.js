@@ -407,15 +407,19 @@ function drawGeomap(commodity){
     // clear old geomap
     svg.selectAll("path").remove();
     var field="";
+    var positive = false;
 
     if(commodity == "steel"){
       field="steel_employment"
+      positive = true;
     }
     else if(commodity == "aluminum"){
       field="aluminum_employment"
+      positive = true;
     }
     else if(commodity == "high tech"){
       field="hightech_employment"
+      positive = true;
     }
     else if(commodity == "pork"){
       field="pork_employment"
@@ -429,6 +433,14 @@ function drawGeomap(commodity){
     else{
         console.log("somehow you selected a commodity that we haven't graphed");
         return;
+    }
+
+    // if positive impact, make green
+    // if negative impact, make red
+    if(positive){
+      color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
+    }else{
+      color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
   d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){
@@ -501,7 +513,7 @@ function drawGeomap(commodity){
 function updateGeomap(commodity){
 
     var field="";
-
+    var positive = true;
     if(commodity == "steel"){
       field="steel_employment"
     }
@@ -513,16 +525,25 @@ function updateGeomap(commodity){
     }
     else if(commodity == "pork"){
       field="pork_employment"
+      positive = false;
     }
     else if(commodity == "soybeans"){
       field="oilseed_employment"
+      positive = false;
     }
     else if(commodity == "transportation"){
       field="transportation_employment"
+      positive = false;
     }
     else{
         console.log("somehow you selected a commodity that we haven't graphed");
         return;
+    }
+
+    if(positive){
+      color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
+    }else{
+      color.range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
   d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){

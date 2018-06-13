@@ -545,7 +545,7 @@ function updateGeomap(commodity){
 
       
       // re-fill the paths
-      svg.selectAll("path")
+      svg.selectAll("path#map")
       .data(json.features)
       .style("fill", function(d){
           if(d.properties[field] == undefined){

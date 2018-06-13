@@ -176,6 +176,7 @@ function drawBarChart(commodity){
 d3.csv(path, function(d, i, columns){
         // sums up the values in each column to determine yScale later
       for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]]/1000000000;
+//      for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
       d.total = t;
       return d;
     

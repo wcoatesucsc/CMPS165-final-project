@@ -285,40 +285,104 @@ function radioUpdate() {
 }
 
 
-d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){
-    svg.selectAll("path")
-    .data(json.features)
-	.enter()
-    .append("path")
-    .attr("d", path)
-    .attr("id", "map")
-    .style("fill", function(d){
-        let rand = Math.round(Math.random() * 10);
-        return color(rand);
-    })
-    // tooltips!
-    .on("mouseover", function(d){
-        var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
-        var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
+d3.csv("electrical.csv", function(electricalcsv){
+    d3.json("gz_2010_us_050_00_500k_steel_aluminum_oilseed_machinery_computerselectronics.json", function(json){
+        
+    // Attach the electrical employment data to each GEOJSON
+        
+       for(let i = 0; i < electricalcsv.length; i++){
+           let employment = electricalcsv[i].month3_emplvl;
+           
+           // don't bother adding if employment is 0
+           if(employment == 0) continue;
+           
+           // make each area_fips the same length by adding a leading zero if necessary
+           let csv_fips = electricalcsv[i].area_fips;
+           
+           // if it's a city, don't bother searching
+           if(csv_fips[0] == 'C') continue;
+           
+           let fips_len = electricalcsv[i].area_fips.length;
+          
+           
+           if(fips_len < 5){
+               csv_fips = ('0' + csv_fips);    
+           }
+          
+           /* check through every feature in the geoJSON to 
+              find a matching fips. If the fips matches, add
+              the electrical employment level to the feature's properties
+           */
+        
+	       for (var j = 0; j < json.features.length; j++) {
+               
+               let properties = json.features[j].properties;
+               // if it's a state total don't bother searching
+               if(properties.COUNTY == 000) continue;
+               
+               //let json_fips = properties.STATE + properties.COUNTY;
+               
+               
+               //console.log("json_fips = " + json_fips + "csv_fips = " + csv_fips);
+               /*
+               if(json_fips == csv_fips){
+                   console.log("Match! json_fips = " + json_fips + " csv_fips = " + csv_fips);
+                   console.log("electrical_employment = " + employment);
+                   properties.electrical_employment = employment;
+                   
+                   break;
+               }
+               */
+               if(properties.computerselectronics_employment != null || properties.machinery_employment != null || properties.electrical_employment != null){
+                   properties.hightech_employment = +0;
+                   if (properties.computerselectronics_employment != null) properties.hightech_employment += +properties.computerselectronics_employment;
+                   if (properties.machinery_employment!= null) properties.hightech_employment += +properties.machinery_employment;
+                   if (properties.electrical_employment!= null) properties.hightech_employment += +properties.electrical_employment;
+               }
+               
+           }
+       } 
+       
+        console.log(JSON.stringify(json));
+    
+        
+    
+        svg.selectAll("path")
+        .data(json.features)
+    	.enter()
+        .append("path")
+        .attr("d", path)
+        .attr("id", "map")
+        .style("fill", function(d){
+            let rand = Math.round(Math.random() * 10);
+            return color(rand);
+        })    
+        // tooltips!
+        .on("mouseover", function(d){
+            var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
+            var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
         
         
-        //Update the tooltip position and value
-        d3.select("#tooltip")
-          .style("left", xPosition + "px")
-          .style("top", yPosition + "px")
-          .select("#tooltipheader")
-          //.text(d.properties.NAME + " County, ")
-          .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
+            //Update the tooltip position and value
+            d3.select("#tooltip")
+              .style("left", xPosition + "px")
+              .style("top", yPosition + "px")
+              .select("#tooltipheader")
+              //.text(d.properties.NAME + " County, ")
+              .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
         
-        //Show the tooltip
-        d3.select("#tooltip").classed("hidden", false);
-    })
-    .on("mouseout", function(){
-        //Hide the tooltip
-        d3.select("#tooltip").classed("hidden", true);
-    });
+            //Show the tooltip
+            d3.select("#tooltip").classed("hidden", false);
+            })
+            .on("mouseout", function(){
+                //Hide the tooltip
+                d3.select("#tooltip").classed("hidden", true);
+            });
    
+      });
 });
+
+
 
 
 

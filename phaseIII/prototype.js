@@ -138,9 +138,9 @@ var barChartY = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var barChartColor = d3.scaleOrdinal()
-//.range(['rgb(152,78,163)','rgb(55,126,184)','rgb(228,26,28)','rgb(77,175,74)']);
-.range(['rgb(228,26,28, 1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)']);
-
+.domain(['China','Canada','Brazil','Mexico','Korea','Russia','Germany','United Arab Em','Bahrain','Japan','Hong Kong','Indonesia','All other']) 
+//.range(['rgb(228,26,28,1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)'])
+.range(['red','Canada','Brazil','Mexico','Korea','Russia','Germany','United Arab Em','Bahrain','Japan','Hong Kong','Indonesia','All other'])
 function drawBarChart(commodity){
     // clear old bar chart
     svg.selectAll("rect").remove();
@@ -192,7 +192,6 @@ d3.csv(path, function(d, i, columns){
     
       barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
     
-      barChartColor.domain(keys);
 
       g.append("g")
         .selectAll("g")

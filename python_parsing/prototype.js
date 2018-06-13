@@ -285,24 +285,24 @@ function radioUpdate() {
 }
 
 
-d3.csv("electrical.csv", function(electricalcsv){
-    d3.json("gz_2010_us_050_00_500k_steel_aluminum_oilseed_machinery_computerselectronics.json", function(json){
+d3.csv("transportation.csv", function(transportationcsv){
+    d3.json("gz_2010_us_050_00_500k_all_employment_and_pork.json", function(json){
         
-    // Attach the electrical employment data to each GEOJSON
+    // Attach the transportation employment data to each GEOJSON
         
-       for(let i = 0; i < electricalcsv.length; i++){
-           let employment = electricalcsv[i].month3_emplvl;
+       for(let i = 0; i < transportationcsv.length; i++){
+           let employment = transportationcsv[i].month3_emplvl;
            
            // don't bother adding if employment is 0
            if(employment == 0) continue;
            
            // make each area_fips the same length by adding a leading zero if necessary
-           let csv_fips = electricalcsv[i].area_fips;
+           let csv_fips = transportationcsv[i].area_fips;
            
            // if it's a city, don't bother searching
            if(csv_fips[0] == 'C') continue;
            
-           let fips_len = electricalcsv[i].area_fips.length;
+           let fips_len = transportationcsv[i].area_fips.length;
           
            
            if(fips_len < 5){
@@ -311,7 +311,7 @@ d3.csv("electrical.csv", function(electricalcsv){
           
            /* check through every feature in the geoJSON to 
               find a matching fips. If the fips matches, add
-              the electrical employment level to the feature's properties
+              the transportation employment level to the feature's properties
            */
         
 	       for (var j = 0; j < json.features.length; j++) {
@@ -320,26 +320,27 @@ d3.csv("electrical.csv", function(electricalcsv){
                // if it's a state total don't bother searching
                if(properties.COUNTY == 000) continue;
                
-               //let json_fips = properties.STATE + properties.COUNTY;
+               let json_fips = properties.STATE + properties.COUNTY;
                
                
                //console.log("json_fips = " + json_fips + "csv_fips = " + csv_fips);
-               /*
+               
                if(json_fips == csv_fips){
                    console.log("Match! json_fips = " + json_fips + " csv_fips = " + csv_fips);
-                   console.log("electrical_employment = " + employment);
-                   properties.electrical_employment = employment;
+                   console.log("transportation_employment = " + employment);
+                   properties.transportation_employment = employment;
                    
                    break;
                }
-               */
+               
+               /*
                if(properties.computerselectronics_employment != null || properties.machinery_employment != null || properties.electrical_employment != null){
                    properties.hightech_employment = +0;
                    if (properties.computerselectronics_employment != null) properties.hightech_employment += +properties.computerselectronics_employment;
                    if (properties.machinery_employment!= null) properties.hightech_employment += +properties.machinery_employment;
                    if (properties.electrical_employment!= null) properties.hightech_employment += +properties.electrical_employment;
                }
-               
+              */ 
            }
        } 
        

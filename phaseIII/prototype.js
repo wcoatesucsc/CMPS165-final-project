@@ -188,7 +188,7 @@ d3.csv(path, function(d, i, columns){
     
       console.log(keys);
 
-      barChartX.domain(data.map(function(d) { console.log("mapping: " + d.country); return d.country; }));
+      barChartX.domain(data.map(function(d) { /*console.log("mapping: " + d.country);*/ return d.country; }));
     
       barChartY.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
     
@@ -275,37 +275,44 @@ function updateSteel(){
     console.log("update steel");
     // update geomap
     updateColorGreen();
+    radioUpdate();
+
     // update bar chart
     drawBarChart("steel");
 }
 function updateAluminum(){
     console.log("update aluminum");
     updateColorGreen();
-    
+    radioUpdate();
+
     drawBarChart("aluminum");
 }
 function updateHighTech(){
     console.log("update high tech");
     updateColorGreen();
-    
+    radioUpdate();
+
     drawBarChart("high tech");
 }
 function updatePork(){
     console.log("update pork");
     updateColorRed();
-    
+    radioUpdate();
+
     drawBarChart("pork");
 }
 function updateSoybeans(){
     console.log("update Soybeans");
     updateColorRed();
-    
+    radioUpdate();
+
     drawBarChart("soybeans");
 }
 function updateTransportation(){
     console.log("update transportation");
     updateColorRed();
-    
+    radioUpdate();
+
     drawBarChart("transportation");
 }
 
@@ -340,14 +347,15 @@ function updateColorRed() {
 // value is Steel by default
 var commodity = "Steel";
 
+$("#commodity").hide().html(commodity).fadeIn('fast');
 
 function radioUpdate() {
     d3.selectAll("input[name='commodity']").on("change", function(){
-        var commodity = this.value;
+        commodity = this.value;
         console.log("commodity = " + commodity);
+        $("#commodity").hide().html(commodity+" employment by county").fadeIn('slow');
     });
 }
-
 
 /*=======================================================================
  *

@@ -584,4 +584,4 @@ function updateGeomap(commodity){
   });
 }
 // draw the map for the first time!
-drawGeomap('steel');
+drawGeomap('pork');

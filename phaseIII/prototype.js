@@ -142,15 +142,36 @@ var barChartColor = d3.scaleOrdinal()
 .range(['rgb(228,26,28, 1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)']);
 
 function drawBarChart(commodity){
-   
-    //let commodity = "steel";
-    let path = "../Data/US_Imports/";
-    
+    // clear old bar chart
+    svg.selectAll("rect").remove();
+    svg.selectAll("g.axis").remove();
+    svg.selectAll("g.legend").remove();
+    svg.selectAll("text.legend").remove();
+  
+   // customize the path to the data file based on the input commodity 
+    let path = "../Data/";
     if(commodity == "steel"){
-        path += "Steel_Items_Tariffed/steel_display_transposed.csv";
+        path += "US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv";
     }
-    
-    
+    else if(commodity == "aluminum"){
+        path += "US_Imports/Aluminum_Items_Tariffed/aluminum_display_transposed.csv";
+    }
+    else if(commodity == "high tech"){
+        path += "US_Imports/High_Tech_85_Items_Tariffed/85Data_display_transpose.csv";
+    }
+    else if(commodity == "pork"){
+        path += "US_Exports/pork/pork_display_transposed.csv";
+    }
+    else if(commodity == "soybeans"){
+        path += "US_Exports/oilseed/oilseed_display_transpose.csv";
+    }
+    else if(commodity == "transportation"){
+        path += "US_Exports/transportation/trans_display_transposed.csv";
+    }
+    else{
+        console.log("somehow you selected a commodity that we haven't graphed");
+        return;
+    }
 //    d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
 d3.csv(path, function(d, i, columns){
         // sums up the values in each column to determine yScale later
@@ -255,31 +276,37 @@ function updateSteel(){
     // update geomap
     updateColorGreen();
     // update bar chart
-    svg.selectAll("rect").remove();
-    svg.selectAll("g.axis").remove();
-    svg.selectAll("g.legend").remove();
-    svg.selectAll("text.legend").remove();
     drawBarChart("steel");
 }
 function updateAluminum(){
     console.log("update aluminum");
     updateColorGreen();
+    
+    drawBarChart("aluminum");
 }
 function updateHighTech(){
     console.log("update high tech");
     updateColorGreen();
+    
+    drawBarChart("high tech");
 }
 function updatePork(){
     console.log("update pork");
     updateColorRed();
+    
+    drawBarChart("pork");
 }
 function updateSoybeans(){
     console.log("update Soybeans");
     updateColorRed();
+    
+    drawBarChart("soybeans");
 }
 function updateTransportation(){
     console.log("update transportation");
     updateColorRed();
+    
+    drawBarChart("transportation");
 }
 
 // button input, changes color value depending on clicked button

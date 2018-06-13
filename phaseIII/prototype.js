@@ -220,6 +220,13 @@ d3.csv(path, function(d, i, columns){
           .attr("dy", ".15em")
           .attr("transform", "rotate(-65)");
 
+      var importExport = "";
+      if(commodity == "steel" || commodity == "aluminum" || commodity == "high tech"){
+          importExport = "Imports";
+      }
+      else{
+          importExport = "Exports";
+      }
       g.append("g")
           .attr("class", "axis")
           .call(d3.axisLeft(barChartY).ticks(null, "s"))
@@ -230,7 +237,7 @@ d3.csv(path, function(d, i, columns){
           .attr("fill", "#000")
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
-          .text("US Imports ($)");
+          .text("US " + importExport + " ($)");
 
     
     

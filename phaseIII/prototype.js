@@ -173,7 +173,7 @@ function drawBarChart(commodity){
         return;
     }
 //    d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
-d3.csv(path, function(d, i, columns){
+  d3.csv(path, function(d, i, columns){
         // sums up the values in each column to determine yScale later
       for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
       d.total = t;
@@ -286,6 +286,7 @@ function updateSteel(){
 
     // update bar chart
     drawBarChart("steel");
+    drawGeomap("steel")
 }
 function updateAluminum(){
     console.log("update aluminum");
@@ -293,6 +294,7 @@ function updateAluminum(){
     radioUpdate();
 
     drawBarChart("aluminum");
+    drawGeomap("aluminum")
 }
 function updateHighTech(){
     console.log("update high tech");
@@ -300,6 +302,7 @@ function updateHighTech(){
     radioUpdate();
 
     drawBarChart("high tech");
+    drawGeomap("high tech")
 }
 function updatePork(){
     console.log("update pork");
@@ -307,6 +310,7 @@ function updatePork(){
     radioUpdate();
 
     drawBarChart("pork");
+    drawGeomap("pork")
 }
 function updateSoybeans(){
     console.log("update Soybeans");
@@ -314,6 +318,7 @@ function updateSoybeans(){
     radioUpdate();
 
     drawBarChart("soybeans");
+    drawGeomap("soybeans")
 }
 function updateTransportation(){
     console.log("update transportation");
@@ -321,6 +326,7 @@ function updateTransportation(){
     radioUpdate();
 
     drawBarChart("transportation");
+    drawGeomap("transportation")
 }
 
 // button input, changes color value depending on clicked button
@@ -398,41 +404,86 @@ var color = d3.scaleQuantize()
 .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
 
 
+function drawGeomap(commodity){
 
-d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){
-    svg.selectAll("path")
-    .data(json.features)
-	.enter()
-    .append("path")
-    .attr("d", path)
-    .attr("id", "map")
-    .style("fill", function(d){
-        let rand = Math.round(Math.random() * 10);
-        return color(rand);
-    })
-    // tooltips!
-    .on("mouseover", function(d){
-        var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
-        var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
-        
-        
-        //Update the tooltip position and value
-        d3.select("#tooltip")
-          .style("left", xPosition + "px")
-          .style("top", yPosition + "px")
-          .select("#tooltipheader")
-          //.text(d.properties.NAME + " County, ")
-          .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
-        
-        //Show the tooltip
-        d3.select("#tooltip").classed("hidden", false);
-    })
-    .on("mouseout", function(){
-        //Hide the tooltip
-        d3.select("#tooltip").classed("hidden", true);
-    });
-   
-});
+    // clear old geomap
+  
+    var field="";
+
+    if(commodity == "steel"){
+      field="steel_employment"
+    }
+    else if(commodity == "aluminum"){
+      field="aluminum_employment"
+    }
+    else if(commodity == "high tech"){
+      field="hightech_employment"
+    }
+    else if(commodity == "pork"){
+      field="pork_employment"
+    }
+    else if(commodity == "soybeans"){
+      field="oilseed_employment"
+    }
+    else if(commodity == "transportation"){
+      field=""
+    }
+    else{
+        console.log("somehow you selected a commodity that we haven't graphed");
+        return;
+    }
+
+  d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){
+    values = [];
+    var min = 0;
+    var max = 0;
+    for (var i = 0; i < json.features.length; i++) {
+        if(typeof json.features[i].properties[field] !== "undefined"){
+          console.log(json.features[i].properties[field]);
+          values.push(json.features[i].properties[field])
+        }
+     }
+
+    min = Math.min.apply(null, values)
+    max = Math.max.apply(null, values)
+
+    console.log("min= "+min)
+    console.log("max= "+max)
 
 
+      svg.selectAll("path")
+      .data(json.features)
+  	  .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("id", "map")
+      .style("fill", function(d){
+          let rand = Math.round(Math.random() * 10);
+          return color(rand);
+      })
+      // tooltips!
+      .on("mouseover", function(d){
+          var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
+          var yPosition = (d3.mouse(this)[1] + tooltipYOffset);
+          
+          
+          //Update the tooltip position and value
+          d3.select("#tooltip")
+            .style("left", xPosition + "px")
+            .style("top", yPosition + "px")
+            .select("#tooltipheader")
+            //.text(d.properties.NAME + " County, ")
+            .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
+          
+          //Show the tooltip
+          d3.select("#tooltip").classed("hidden", false);
+      })
+      .on("mouseout", function(){
+          //Hide the tooltip
+          d3.select("#tooltip").classed("hidden", true);
+      });
+     
+  });
+}
 
+drawGeomap('steel');

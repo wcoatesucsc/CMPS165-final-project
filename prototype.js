@@ -991,7 +991,7 @@ function drawGeomap(commodity){
                            var height = 30;
                            var x = 900;
                            var y = i * height;
-                           return 'translate(' + x + ',' + (y + 400) + ')';
+                           return 'translate(' + x + ',' + (y + 450) + ')';
                        });
             // append a rectangle for each color in the range
             geomapLegend.append('rect')
@@ -1158,7 +1158,7 @@ function updateGeomap(commodity){
                            var height = 30;
                            var x = 900;
                            var y = i * height;
-                           return 'translate(' + x + ',' + (y + 400) + ')';
+                           return 'translate(' + x + ',' + (y + 450) + ')';
                        });
             // append a rectangle for each color in the range
             geomapLegend.append('rect')

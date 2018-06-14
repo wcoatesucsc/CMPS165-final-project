@@ -285,13 +285,13 @@ function radioUpdate() {
 }
 
 
-//d3.csv("all.csv", function(allcsv){
-    d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){
+d3.csv("all.csv", function(allcsv){
+    d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){
         
     // Attach the all employment data to each GEOJSON
        
-    //   for(let i = 0; i < allcsv.length; i++){
-        /*
+    for(let i = 0; i < allcsv.length; i++){
+       
            let employment = allcsv[i].month3_emplvl;
            
            // don't bother adding if employment is 0
@@ -309,7 +309,7 @@ function radioUpdate() {
            if(fips_len < 5){
                csv_fips = ('0' + csv_fips);    
            }
-         */ 
+         
            /* check through every feature in the geoJSON to 
               find a matching fips. If the fips matches, add
               the all employment level to the feature's properties
@@ -327,7 +327,7 @@ function radioUpdate() {
                
                
                //console.log("json_fips = " + json_fips + "csv_fips = " + csv_fips);
-             /* 
+             
                if(json_fips == csv_fips){
                    console.log("Match! json_fips = " + json_fips + " csv_fips = " + csv_fips);
                    console.log("all_employment = " + employment);
@@ -335,7 +335,8 @@ function radioUpdate() {
                    
                    break;
                }
-              */ 
+              
+               
              /* 
                if(properties.computerselectronics_employment != null || properties.machinery_employment != null || properties.electrical_employment != null){
                    properties.hightech_employment = +0;
@@ -350,7 +351,7 @@ function radioUpdate() {
                    let steelPercent = (properties.steel_employment / properties.all_employment) * 100;
                    //console.log(properties.all_employment);
                    
-                   console.log("County: " + properties.NAME + " percent steel: " + steelPercent);
+                   //console.log("County: " + properties.NAME + " percent steel: " + steelPercent);
                    
                    properties.steel_percent = steelPercent;
                }
@@ -358,7 +359,7 @@ function radioUpdate() {
                    let aluminumPercent = (properties.aluminum_employment / properties.all_employment) * 100;
                    //console.log(properties.all_employment);
                    
-                   console.log("County: " + properties.NAME + " percent aluminum: " + aluminumPercent);
+                   //console.log("County: " + properties.NAME + " percent aluminum: " + aluminumPercent);
                    
                    properties.aluminum_percent = aluminumPercent;
                }
@@ -366,7 +367,7 @@ function radioUpdate() {
                    let hightechPercent = (properties.hightech_employment / properties.all_employment) * 100;
                    //console.log(properties.all_employment);
                    
-                   console.log("County: " + properties.NAME + " percent hightech: " + hightechPercent);
+                   //console.log("County: " + properties.NAME + " percent hightech: " + hightechPercent);
                    
                    properties.hightech_percent = hightechPercent;
                }
@@ -374,7 +375,7 @@ function radioUpdate() {
                    let porkPercent = (properties.pork_employment / properties.all_employment) * 100;
                    //console.log(properties.all_employment);
                    
-                   console.log("County: " + properties.NAME + " percent pork: " + porkPercent);
+                   //console.log("County: " + properties.NAME + " percent pork: " + porkPercent);
                    
                    properties.pork_percent = porkPercent;
                }
@@ -382,7 +383,7 @@ function radioUpdate() {
                    let oilseedPercent = (properties.oilseed_employment / properties.all_employment) * 100;
                    //console.log(properties.all_employment);
                    
-                   console.log("County: " + properties.NAME + " percent oilseed: " + oilseedPercent);
+                   //console.log("County: " + properties.NAME + " percent oilseed: " + oilseedPercent);
                    
                    properties.oilseed_percent = oilseedPercent;
                }
@@ -390,12 +391,12 @@ function radioUpdate() {
                    let transportationPercent = (properties.transportation_employment / properties.all_employment) * 100;
                    //console.log(properties.all_employment);
                    
-                   console.log("County: " + properties.NAME + " percent transportation: " + transportationPercent);
+                   //console.log("County: " + properties.NAME + " percent transportation: " + transportationPercent);
                    
                    properties.transportation_percent = transportationPercent;
                }
            }
-       //} 
+    }
        
         console.log(JSON.stringify(json));
     
@@ -434,7 +435,7 @@ function radioUpdate() {
             });
    
       });
-//});
+});
 
 
 

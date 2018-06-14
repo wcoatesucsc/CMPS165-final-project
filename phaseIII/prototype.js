@@ -283,7 +283,6 @@ function drawBarChart(commodity){
 function updateSteel(){
     console.log("update steel");
     // update geomap
-  //  updateColorGreen();
     radioUpdate();
 
     // update bar chart
@@ -292,7 +291,6 @@ function updateSteel(){
 }
 function updateAluminum(){
     console.log("update aluminum");
- //   updateColorGreen();
     radioUpdate();
 
     drawBarChart("aluminum");
@@ -300,7 +298,6 @@ function updateAluminum(){
 }
 function updateHighTech(){
     console.log("update high tech");
-//    updateColorGreen();
     radioUpdate();
 
     drawBarChart("high tech");
@@ -308,7 +305,6 @@ function updateHighTech(){
 }
 function updatePork(){
     console.log("update pork");
-    //updateColorRed();
     radioUpdate();
 
     drawBarChart("pork");
@@ -316,7 +312,6 @@ function updatePork(){
 }
 function updateSoybeans(){
     console.log("update Soybeans");
-    //updateColorRed();
     radioUpdate();
 
     drawBarChart("soybeans");
@@ -324,39 +319,12 @@ function updateSoybeans(){
 }
 function updateTransportation(){
     console.log("update transportation");
-   // updateColorRed();
     radioUpdate();
 
     drawBarChart("transportation");
     updateGeomap("transportation")
 }
 
-// button input, changes color value depending on clicked button
-function updateColorGreen() {
-    console.log("update color green")
-    var color = d3.scaleQuantize()
-    .domain([0, 10])
-    .range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
-
-    svg.selectAll("path#map")
-    .style("fill", function(d){
-        let rand = Math.round(Math.random() * 10);
-        return color(rand);
-    })
-}
-
-function updateColorRed() {
-    console.log("update color red")
-    var color = d3.scaleQuantize()
-    .domain([0, 10])
-    .range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)']);
-    
-    svg.selectAll("path#map")
-    .style("fill", function(d){
-        let rand = Math.round(Math.random() * 10);
-        return color(rand);
-    })   
-}
 
 // radio button input, changes value of commodity string based on selected button
 // value is Steel by default
@@ -492,7 +460,8 @@ function drawGeomap(commodity){
               return "rgb(0, 0, 0)";
           }
           else{
-              return color(d.properties[field]);
+              //return color(d.properties[field]);
+              return color(d.properties[percent]);
           }
       })
       // tooltips!
@@ -586,8 +555,8 @@ function updateGeomap(commodity){
     var max = 0;
     for (var i = 0; i < json.features.length; i++) {
         if(typeof json.features[i].properties[field] !== "undefined"){
-          //console.log(json.features[i].properties[field]);
-          values.push(json.features[i].properties[field])
+          //values.push(json.features[i].properties[field])
+          values.push(json.features[i].properties[percent])
         }
      }
     // calculate the min/max of input to re-scale
@@ -608,7 +577,8 @@ function updateGeomap(commodity){
           }
           else{
               // otherwise, fill it with an appropriate color
-              return color(d.properties[field]);
+              //return color(d.properties[field]);
+              return color(d.properties[percent]);
           }
       })
       

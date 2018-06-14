@@ -151,31 +151,31 @@ function drawBarChart(commodity){
     svg.selectAll("text.legend").remove();
   
    // customize the path to the data file based on the input commodity 
-    let path = "../Data/";
+    let filename = "../Data/";
     if(commodity == "steel"){
-        path += "US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv";
+        filename += "US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv";
     }
     else if(commodity == "aluminum"){
-        path += "US_Imports/Aluminum_Items_Tariffed/aluminum_display_transposed.csv";
+        filename += "US_Imports/Aluminum_Items_Tariffed/aluminum_display_transposed.csv";
     }
     else if(commodity == "high tech"){
-        path += "US_Imports/High_Tech_85_Items_Tariffed/85Data_display_transpose.csv";
+        filename += "US_Imports/High_Tech_85_Items_Tariffed/85Data_display_transpose.csv";
     }
     else if(commodity == "pork"){
-        path += "US_Exports/pork/pork_display_transposed.csv";
+        filename += "US_Exports/pork/pork_display_transposed.csv";
     }
     else if(commodity == "soybeans"){
-        path += "US_Exports/oilseed/oilseed_display_transpose.csv";
+        filename += "US_Exports/oilseed/oilseed_display_transpose.csv";
     }
     else if(commodity == "transportation"){
-        path += "US_Exports/transportation/trans_display_transposed.csv";
+        filename += "US_Exports/transportation/trans_display_transposed.csv";
     }
     else{
         console.log("somehow you selected a commodity that we haven't graphed");
         return;
     }
 //    d3.csv("../Data/US_Imports/Steel_Items_Tariffed/steel_display_transposed.csv", function(d, i, columns){
-  d3.csv(path, function(d, i, columns){
+  d3.csv(filename, function(d, i, columns){
         // sums up the values in each column to determine yScale later
       for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]]/1000000000;
 //      for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -425,7 +425,7 @@ function drawGeomap(commodity){
       color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
-  d3.json("gz_2010_us_050_00_500k_all_employment_percent.json", function(json){
+  d3.json("gz_2010_us_050_00_500k_all_employment_percent_aggregated.json", function(json){
     values = [];
     var min = 0;
     var max = 0;
@@ -549,7 +549,7 @@ function updateGeomap(commodity){
       color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
-  d3.json("gz_2010_us_050_00_500k_all_employment_percent.json", function(json){
+  d3.json("gz_2010_us_050_00_500k_all_employment_percent_aggregated.json", function(json){
     values = [];
     var min = 0;
     var max = 0;

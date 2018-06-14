@@ -371,6 +371,38 @@ var color = d3.scaleQuantize()
 //.range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
 .range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
 
+            var legend = d3.select('svg')
+                       .append('g')
+                       .selectAll('g')
+                       .data(color.range())
+                       .enter()
+                       .append('g')
+                       .attr('class', 'legend')
+                       .text("hi there")
+                       .attr('transform', function(d, i){
+                           var height = 30;
+                           var x = 900;
+                           var y = i * height;
+                           return 'translate(' + x + ',' + (y + 400) + ')';
+                       });
+            // append a rectangle for each color in the range
+            legend.append('rect')
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .style('fill', function(d){ return d; })
+                    .style('stroke', color);
+            // append labels for each color rectangle
+            legend.append('text')
+                    .attr('x', 25)
+                    .attr('y', 16)
+                    .text(function(d, i){ 
+                    // I had to make a "manual" color scale. 
+                    // The quantized scale put almost all regions in the 
+                    // lowest bucket because Copenhagen is such an
+                    // outlier, so I made custom ranges for each color
+                    var ranges = ["1-2", "3-5", "6-10", "11-20"];
+                        return ranges[i] + " %";
+                    });
 
 function drawGeomap(commodity){
 

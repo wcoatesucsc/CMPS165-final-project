@@ -787,6 +787,59 @@ function setColorRange(commodity, raw){
     }
 }
 
+function setGeomapLegendRanges(commodity, raw){
+    if(commodity == "steel"){
+       // then divide into raw/percent
+       if(raw){
+           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+       } 
+       else{
+           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+       }
+    }
+    else if (commodity == "aluminum"){
+        if(raw){
+            return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+        }
+        else{
+           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+        }
+    }
+    else if (commodity == "high tech"){
+        if(raw){
+           return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(65,171,93)','rgb(35,139,69)','rgb(0,90,50)'];
+        }
+        else{
+            return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+        }
+    }
+    else if (commodity == "pork"){
+        if(raw){
+            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+        else{
+            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+    }
+    else if (commodity == "soybeans"){
+        if(raw){
+            return ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+        else{
+            return ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+    }
+    else if (commodity == "transportation"){
+        if(raw){
+            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+        }
+        else{
+            return  ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+        }
+    }
+}
+
+
 function drawGeomap(commodity){
 
     // set up new color scale for legend
@@ -1038,7 +1091,7 @@ function updateGeomap(commodity){
       .data(json.features)
       .style("fill", function(d){
           if(d.properties[field] == undefined){
-              // if no data for a county, paint it black
+              // if no data for a county, paint it grey
               return "rgb(0, 0, 0)";
           }
           else{
@@ -1086,6 +1139,7 @@ function updateGeomap(commodity){
           d3.select("#tooltip").classed("hidden", true);
       });
   });
+    
     
 
             var geomapLegend = d3.select('svg')

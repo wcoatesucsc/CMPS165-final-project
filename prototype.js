@@ -1194,6 +1194,7 @@ drawGeomap('pork');
  * setting up annotations:
  * by Susie Lu: http://d3-annotation.susielu.com/
  *=================================================================*/
+/*
 const type = d3.annotationLabel;
 
 const annotations = [
@@ -1268,3 +1269,4 @@ const annotations = [
 
         setTimeout(drawAnnotations, 3000);
         //drawAnnotations();
+*/

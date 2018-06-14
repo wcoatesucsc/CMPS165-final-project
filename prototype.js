@@ -16,7 +16,7 @@ const pieVertOffset = 150;
 const pieHorizOffset = 1250;
 // tooltip magic numbers
 const tooltipXOffset = 20;
-const tooltipYOffset = 225;
+const tooltipYOffset = 275;
 
 // percent vs raw numbers
 var raw = true;

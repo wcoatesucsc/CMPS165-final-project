@@ -285,33 +285,34 @@ function radioUpdate() {
 }
 
 
-d3.csv("transportation.csv", function(transportationcsv){
-    d3.json("gz_2010_us_050_00_500k_all_employment_and_pork.json", function(json){
+//d3.csv("all.csv", function(allcsv){
+    d3.json("gz_2010_us_050_00_500k_all_employment.json", function(json){
         
-    // Attach the transportation employment data to each GEOJSON
-        
-       for(let i = 0; i < transportationcsv.length; i++){
-           let employment = transportationcsv[i].month3_emplvl;
+    // Attach the all employment data to each GEOJSON
+       
+    //   for(let i = 0; i < allcsv.length; i++){
+        /*
+           let employment = allcsv[i].month3_emplvl;
            
            // don't bother adding if employment is 0
            if(employment == 0) continue;
            
            // make each area_fips the same length by adding a leading zero if necessary
-           let csv_fips = transportationcsv[i].area_fips;
+           let csv_fips = allcsv[i].area_fips;
            
            // if it's a city, don't bother searching
            if(csv_fips[0] == 'C') continue;
            
-           let fips_len = transportationcsv[i].area_fips.length;
+           let fips_len = allcsv[i].area_fips.length;
           
            
            if(fips_len < 5){
                csv_fips = ('0' + csv_fips);    
            }
-          
+         */ 
            /* check through every feature in the geoJSON to 
               find a matching fips. If the fips matches, add
-              the transportation employment level to the feature's properties
+              the all employment level to the feature's properties
            */
         
 	       for (var j = 0; j < json.features.length; j++) {
@@ -321,19 +322,21 @@ d3.csv("transportation.csv", function(transportationcsv){
                if(properties.COUNTY == 000) continue;
                
                let json_fips = properties.STATE + properties.COUNTY;
+             
+               
                
                
                //console.log("json_fips = " + json_fips + "csv_fips = " + csv_fips);
-               
+             /* 
                if(json_fips == csv_fips){
                    console.log("Match! json_fips = " + json_fips + " csv_fips = " + csv_fips);
-                   console.log("transportation_employment = " + employment);
-                   properties.transportation_employment = employment;
+                   console.log("all_employment = " + employment);
+                   properties.all_employment = employment;
                    
                    break;
                }
-               
-               /*
+              */ 
+             /* 
                if(properties.computerselectronics_employment != null || properties.machinery_employment != null || properties.electrical_employment != null){
                    properties.hightech_employment = +0;
                    if (properties.computerselectronics_employment != null) properties.hightech_employment += +properties.computerselectronics_employment;
@@ -341,8 +344,58 @@ d3.csv("transportation.csv", function(transportationcsv){
                    if (properties.electrical_employment!= null) properties.hightech_employment += +properties.electrical_employment;
                }
               */ 
+               // look for specific employment in each feature and attach
+               // percentage of total employment
+               if(properties.steel_employment != null){
+                   let steelPercent = (properties.steel_employment / properties.all_employment) * 100;
+                   //console.log(properties.all_employment);
+                   
+                   console.log("County: " + properties.NAME + " percent steel: " + steelPercent);
+                   
+                   properties.steel_percent = steelPercent;
+               }
+               if(properties.aluminum_employment != null){
+                   let aluminumPercent = (properties.aluminum_employment / properties.all_employment) * 100;
+                   //console.log(properties.all_employment);
+                   
+                   console.log("County: " + properties.NAME + " percent aluminum: " + aluminumPercent);
+                   
+                   properties.aluminum_percent = aluminumPercent;
+               }
+               if(properties.hightech_employment != null){
+                   let hightechPercent = (properties.hightech_employment / properties.all_employment) * 100;
+                   //console.log(properties.all_employment);
+                   
+                   console.log("County: " + properties.NAME + " percent hightech: " + hightechPercent);
+                   
+                   properties.hightech_percent = hightechPercent;
+               }
+               if(properties.pork_employment != null){
+                   let porkPercent = (properties.pork_employment / properties.all_employment) * 100;
+                   //console.log(properties.all_employment);
+                   
+                   console.log("County: " + properties.NAME + " percent pork: " + porkPercent);
+                   
+                   properties.pork_percent = porkPercent;
+               }
+               if(properties.oilseed_employment != null){
+                   let oilseedPercent = (properties.oilseed_employment / properties.all_employment) * 100;
+                   //console.log(properties.all_employment);
+                   
+                   console.log("County: " + properties.NAME + " percent oilseed: " + oilseedPercent);
+                   
+                   properties.oilseed_percent = oilseedPercent;
+               }
+               if(properties.transportation_employment != null){
+                   let transportationPercent = (properties.transportation_employment / properties.all_employment) * 100;
+                   //console.log(properties.all_employment);
+                   
+                   console.log("County: " + properties.NAME + " percent transportation: " + transportationPercent);
+                   
+                   properties.transportation_percent = transportationPercent;
+               }
            }
-       } 
+       //} 
        
         console.log(JSON.stringify(json));
     
@@ -381,7 +434,7 @@ d3.csv("transportation.csv", function(transportationcsv){
             });
    
       });
-});
+//});
 
 
 

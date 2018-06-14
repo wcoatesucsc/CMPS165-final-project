@@ -787,54 +787,54 @@ function setColorRange(commodity, raw){
     }
 }
 
-function setGeomapLegendRanges(commodity, raw){
+function setGeomapLegendRange(commodity, raw){
     if(commodity == "steel"){
        // then divide into raw/percent
        if(raw){
-           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+           return ['1-100', '101-500', '501-1000', '1001-3000', '3001-5000'];
        } 
        else{
-           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+           return ['0.01-0.1%', '0.1-1%', '1-5%', '5-10%', '10-15%'];
        }
     }
     else if (commodity == "aluminum"){
         if(raw){
-            return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+           return ['1-100', '101-300', '301-500', '501-750', '751-1000', '1000+'];
         }
         else{
-           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+           return ['0.01-0.1%', '0.1-1%', '1-5%', '5-10%', '10-15%', '15%+'];
         }
     }
     else if (commodity == "high tech"){
         if(raw){
-           return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(65,171,93)','rgb(35,139,69)','rgb(0,90,50)'];
+           return ['1-100', '101-1000', '1001-3000', '3001-5000', '5001-10000', '10001-50000', '50001+'];
         }
         else{
-            return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+           return ['0.01-0.1%', '0.1-1%', '1-5%', '5-10%', '10-15%', '15%+'];
         }
     }
     else if (commodity == "pork"){
         if(raw){
-            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+           return ['1-50', '51-100', '101-300', '301-500', '501-1000', '1001+'];
         }
         else{
-            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+           return ['0.01-0.1%', '0.1-1%', '1-5%', '5-10%', '10-15%', '15%+'];
         }
     }
     else if (commodity == "soybeans"){
         if(raw){
-            return ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+           return ['1-50', '51-100', '101-300', '301-500', '500+'];
         }
         else{
-            return ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+           return ['0.01-0.1%', '0.1-1%', '1-5%', '5-10%', '10-15%']; 
         }
     }
     else if (commodity == "transportation"){
         if(raw){
-            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+           return ['1-100', '101-1000', '1001-3000', '3001-5000', '5001-10000', '10001-25000', '25000-50000'];
         }
         else{
-            return  ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+           return ['0.01-0.1%', '0.1-1%', '1-5%', '5-10%', '10-15%', '15-30%', '30%+'];
         }
     }
 }
@@ -845,6 +845,7 @@ function drawGeomap(commodity){
     // set up new color scale for legend
     let newRange = setColorRange(commodity, raw);
    
+    
     color.range(newRange);
     
     // clear old geomap
@@ -927,12 +928,12 @@ function drawGeomap(commodity){
           //console.log("filling, d.properties[field] = " + d.properties[field]);    
           //let rand = Math.round(Math.random() * 10);
           // if no data, then color grey
-          if(d.properties[field] == undefined){
-              return "rgb(0, 0, 0)";
+         if(d.properties[field] == undefined){
+              // if no data for a county, paint it grey
+              return "rgb(0, 0, 0, 0.15)";
           }
           else{
-              // call the custom fill function for the specified
-              // commodity, variable, and value
+              // otherwise, fill it with an appropriate color
               return fill(d.properties, raw, field, percent, commodity);
               /*
               if(raw){
@@ -944,6 +945,7 @@ function drawGeomap(commodity){
               */
           }
       })
+      .style("stroke", "rgb(0, 0, 0, 0.15)")
       // tooltips!
       .on("mouseover", function(d){
           var xPosition = (d3.mouse(this)[0] + tooltipXOffset);
@@ -1004,12 +1006,13 @@ function drawGeomap(commodity){
                     .attr('y', 16)
                     .attr("class", "geomapLegend")
                     .text(function(d, i){ 
-                    // I had to make a "manual" color scale. 
-                    // The quantized scale put almost all regions in the 
-                    // lowest bucket because Copenhagen is such an
-                    // outlier, so I made custom ranges for each color
-                    var ranges = ["1-2", "3-5", "6-10", "11-20", "25-30"];
-                        return ranges[i] + " %";
+                    var ranges = setGeomapLegendRange(commodity, raw);
+                    if(raw){
+                        return ranges[i] + " workers";
+                    }
+                    else{
+                        return ranges[i];
+                    }
                     });
 }
 
@@ -1092,7 +1095,7 @@ function updateGeomap(commodity){
       .style("fill", function(d){
           if(d.properties[field] == undefined){
               // if no data for a county, paint it grey
-              return "rgb(0, 0, 0)";
+              return "rgb(0, 0, 0, 0.15)";
           }
           else{
               // otherwise, fill it with an appropriate color
@@ -1107,6 +1110,7 @@ function updateGeomap(commodity){
               */
           }
       })
+      .style("stroke", "rgb(0, 0, 0, 0.15)")
       
       // tooltips!
       .on("mouseover", function(d){
@@ -1173,8 +1177,13 @@ function updateGeomap(commodity){
                     // The quantized scale put almost all regions in the 
                     // lowest bucket because Copenhagen is such an
                     // outlier, so I made custom ranges for each color
-                    var ranges = ["1-2", "3-5", "6-10", "11-20"];
-                        return ranges[i] + " %";
+                    var ranges = setGeomapLegendRange(commodity, raw);
+                    if(raw){
+                        return ranges[i] + " workers";
+                    }
+                    else{
+                        return ranges[i];
+                    }
                     });
 
 }
@@ -1250,8 +1259,12 @@ const annotations = [
           .type(d3.annotationLabel)
           .annotations(annotations)
 
-        d3.select("svg")
-          .append("g")
-          .attr("class", "annotation-group")
-          .call(makeAnnotations)
+        function drawAnnotations(){
+            d3.select("svg")
+              .append("g")
+              .attr("class", "annotation-group")
+              .call(makeAnnotations)
+        }
 
+        setTimeout(drawAnnotations, 3000);
+        //drawAnnotations();

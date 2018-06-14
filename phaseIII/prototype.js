@@ -408,8 +408,9 @@ function drawGeomap(commodity){
 
     // clear old geomap
     svg.selectAll("path").remove();
+    
+    
     var field="";
-    var tot_emp="all_employment";
     var percent = "";
     var positive = false;
 
@@ -431,14 +432,17 @@ function drawGeomap(commodity){
     else if(commodity == "pork"){
       field="pork_employment"
       percent="pork_percent"
+      positive = false;
     }
     else if(commodity == "soybeans"){
       field="oilseed_employment"
       percent="oilseed_percent"
+      positive = false;
     }
     else if(commodity == "transportation"){
       field="transportation_employment"
       percent="transportation_percent"
+      positive = false;
     }
     else{
         console.log("somehow you selected a commodity that we haven't graphed");
@@ -474,7 +478,7 @@ function drawGeomap(commodity){
     // reset domain of scale
     color.domain([min, max]);
 
-      svg.selectAll("path")
+      svg.selectAll("path#map")
       .data(json.features)
   	  .enter()
       .append("path")
@@ -533,18 +537,22 @@ function updateGeomap(commodity){
 
     var field="";
     var percent = "";
-    var positive = true;
+    var positive = false;
+    
     if(commodity == "steel"){
       field="steel_employment"
       percent="steel_percent"
+      positive = true;
     }
     else if(commodity == "aluminum"){
       field="aluminum_employment"
       percent="aluminum_percent"
+      positive = true;
     }
     else if(commodity == "high tech"){
       field="hightech_employment"
       percent="hightech_percent"
+      positive = true;
     }
     else if(commodity == "pork"){
       field="pork_employment"
@@ -569,7 +577,7 @@ function updateGeomap(commodity){
     if(positive){
       color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
     }else{
-      color.range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
+      color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
   d3.json("gz_2010_us_050_00_500k_all_employment_percent.json", function(json){

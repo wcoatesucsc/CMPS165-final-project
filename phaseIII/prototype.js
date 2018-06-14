@@ -15,8 +15,8 @@ var pieRadius = 125;
 var pieVertOffset = 150;
 var pieHorizOffset = 1250;
 // tooltip magic numbers
-var tooltipXOffset = 0;
-var tooltipYOffset = 250;
+var tooltipXOffset = 20;
+var tooltipYOffset = 225;
 
 // US states indexed by GeoJSON number
 // NOTE: It doesn't go 01-50, it goes 01, 02, 04(!), 05, 06, 08(!)... for some reason,
@@ -248,7 +248,7 @@ function drawBarChart(commodity){
           .attr("font-family", "sans-serif")
           .attr("font-size", 10)
           .attr("text-anchor", "end")
-          .attr("transform", "translate(50, 0)")
+          .attr("transform", "translate(90, 0)")
         .selectAll("g")
         .data(keys.slice())
         .enter().append("g")

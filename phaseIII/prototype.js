@@ -493,7 +493,16 @@ function drawGeomap(commodity){
             .style("top", yPosition + "px")
             .select("#tooltipheader")
             //.text(d.properties.NAME + " County, ")
-            .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE));
+            .text(generateTooltipHeader(d.properties.NAME, d.properties.STATE))
+
+            // tooltip values for # workers and % of workforce
+            if(d.properties[field] == undefined){
+              $('#workers').empty().append(0)
+              $('#percent').empty().append(0) 
+            }else{
+              $('#workers').empty().append(d.properties[field])
+              $('#percent').empty().append(d.properties[field])
+            }
           
           //Show the tooltip
           d3.select("#tooltip").classed("hidden", false);

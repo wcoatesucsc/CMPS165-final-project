@@ -18,6 +18,9 @@ const pieHorizOffset = 1250;
 const tooltipXOffset = 20;
 const tooltipYOffset = 225;
 
+// percent vs raw numbers
+var raw = true;
+
 // US states indexed by GeoJSON number
 // NOTE: It doesn't go 01-50, it goes 01, 02, 04(!), 05, 06, 08(!)... for some reason,
 // until "STATE":"72"
@@ -429,7 +432,12 @@ function drawGeomap(commodity){
     for (var i = 0; i < json.features.length; i++) {
         if(typeof json.features[i].properties[field] !== "undefined"){
           //console.log(json.features[i].properties[field]);
-          values.push(json.features[i].properties[field])
+          if(raw){
+              values.push(json.features[i].properties[field])
+          }
+          else{
+              values.push(json.features[i].properties[percent])
+          }
         }
      }
 
@@ -457,8 +465,12 @@ function drawGeomap(commodity){
               return "rgb(0, 0, 0)";
           }
           else{
-              //return color(d.properties[field]);
-              return color(d.properties[percent]);
+              if(raw){
+                  return color(d.properties[field]);
+              }
+              else{
+                  return color(d.properties[percent]);
+              }
           }
       })
       // tooltips!
@@ -585,8 +597,12 @@ function updateGeomap(commodity){
     var max = 0;
     for (var i = 0; i < json.features.length; i++) {
         if(typeof json.features[i].properties[field] !== "undefined"){
-          //values.push(json.features[i].properties[field])
-          values.push(json.features[i].properties[percent])
+          if(raw){
+              values.push(json.features[i].properties[field])
+          }
+          else{
+              values.push(json.features[i].properties[percent])
+          }
         }
      }
     // calculate the min/max of input to re-scale
@@ -607,8 +623,12 @@ function updateGeomap(commodity){
           }
           else{
               // otherwise, fill it with an appropriate color
-              //return color(d.properties[field]);
-              return color(d.properties[percent]);
+              if(raw){
+                  return color(d.properties[field]);
+              }
+              else{
+                  return color(d.properties[percent]);
+              }
           }
       })
       
@@ -680,7 +700,7 @@ function updateGeomap(commodity){
 
 }
 // draw the map for the first time!
-//drawGeomap('pork');
+drawGeomap('pork');
 
 /*==================================================================
  * setting up annotations:

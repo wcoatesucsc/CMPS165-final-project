@@ -364,7 +364,8 @@ drawBarChart("steel");
 
 
 
-// initial geomap color range
+
+
 var color = d3.scaleQuantize()
 .domain([0, 10])
 //.range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
@@ -494,9 +495,8 @@ function drawGeomap(commodity){
       });
      
   });
-   
-  // draw a legend for the geomap colors
-  var geomapLegend = d3.select('svg')
+    
+            var geomapLegend = d3.select('svg')
                        .append('g')
                        .selectAll('g')
                        .data(color.range())
@@ -511,24 +511,23 @@ function drawGeomap(commodity){
                            return 'translate(' + x + ',' + (y + 400) + ')';
                        });
             // append a rectangle for each color in the range
-  geomapLegend.append('rect')
-              .attr('width', 20)
-              .attr('height', 20)
-              .style('fill', function(d){ return d; })
-              .style('stroke', color);
+            geomapLegend.append('rect')
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .style('fill', function(d){ return d; })
+                    .style('stroke', color);
             // append labels for each color rectangle
-  geoMapLegend.append('text')
-              .attr('x', 25)
-              .attr('y', 16)
-              .text(function(d, i){ 
-              // I had to make a "manual" color scale. 
-              // The quantized scale put almost all regions in the 
-              // lowest bucket because Copenhagen is such an
-              // outlier, so I made custom ranges for each color
-                  var ranges = ["1-2", "3-5", "6-10", "11-20"];
-                  return ranges[i] + " %";
-              });
-
+            geomapLegend.append('text')
+                    .attr('x', 25)
+                    .attr('y', 16)
+                    .text(function(d, i){ 
+                    // I had to make a "manual" color scale. 
+                    // The quantized scale put almost all regions in the 
+                    // lowest bucket because Copenhagen is such an
+                    // outlier, so I made custom ranges for each color
+                    var ranges = ["1-2", "3-5", "6-10", "11-20"];
+                        return ranges[i] + " %";
+                    });
 }
 
 /* 
@@ -647,8 +646,8 @@ function updateGeomap(commodity){
       });
   });
     
-  // draw a legend for the geomap colors
-  var geomapLegend = d3.select('svg')
+
+            var geomapLegend = d3.select('svg')
                        .append('g')
                        .selectAll('g')
                        .data(color.range())
@@ -663,23 +662,23 @@ function updateGeomap(commodity){
                            return 'translate(' + x + ',' + (y + 400) + ')';
                        });
             // append a rectangle for each color in the range
-  geomapLegend.append('rect')
-              .attr('width', 20)
-              .attr('height', 20)
-              .style('fill', function(d){ return d; })
-              .style('stroke', color);
+            geomapLegend.append('rect')
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .style('fill', function(d){ return d; })
+                    .style('stroke', color);
             // append labels for each color rectangle
-  geoMapLegend.append('text')
-              .attr('x', 25)
-              .attr('y', 16)
-              .text(function(d, i){ 
-              // I had to make a "manual" color scale. 
-              // The quantized scale put almost all regions in the 
-              // lowest bucket because Copenhagen is such an
-              // outlier, so I made custom ranges for each color
-                  var ranges = ["1-2", "3-5", "6-10", "11-20"];
-                  return ranges[i] + " %";
-              });
+            geomapLegend.append('text')
+                    .attr('x', 25)
+                    .attr('y', 16)
+                    .text(function(d, i){ 
+                    // I had to make a "manual" color scale. 
+                    // The quantized scale put almost all regions in the 
+                    // lowest bucket because Copenhagen is such an
+                    // outlier, so I made custom ranges for each color
+                    var ranges = ["1-2", "3-5", "6-10", "11-20"];
+                        return ranges[i] + " %";
+                    });
 
 }
 // draw the map for the first time!

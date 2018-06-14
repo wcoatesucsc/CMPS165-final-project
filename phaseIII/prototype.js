@@ -21,6 +21,10 @@ const tooltipYOffset = 225;
 // percent vs raw numbers
 var raw = true;
 function updateMeasurementRaw(){
+    // remove old geomap legend text to avoid overwrites
+    svg.selectAll("text.geomapLegend").remove();
+    svg.selectAll("rect.geomapLegend").remove();
+    
   raw = true;
   var formatted_commodity = commodity.toLowerCase();
   if(formatted_commodity=="consumer electronics/high-tech"){
@@ -30,6 +34,10 @@ function updateMeasurementRaw(){
 }
 
 function updateMeasurementPercent(){
+    // remove old geomap legend text to avoid overwrites
+    svg.selectAll("text.geomapLegend").remove();
+    svg.selectAll("rect.geomapLegend").remove();
+    
   raw = false;
   var formatted_commodity = commodity.toLowerCase();
   if(formatted_commodity=="consumer electronics/high-tech"){
@@ -932,6 +940,7 @@ function drawGeomap(commodity){
                        });
             // append a rectangle for each color in the range
             geomapLegend.append('rect')
+                    .attr("class", "geomapLegend")
                     .attr('width', 20)
                     .attr('height', 20)
                     .style('fill', function(d){ return d; })
@@ -940,6 +949,7 @@ function drawGeomap(commodity){
             geomapLegend.append('text')
                     .attr('x', 25)
                     .attr('y', 16)
+                    .attr("class", "geomapLegend")
                     .text(function(d, i){ 
                     // I had to make a "manual" color scale. 
                     // The quantized scale put almost all regions in the 
@@ -955,6 +965,8 @@ function drawGeomap(commodity){
  * refill the paths with colors based on the new commodity
  */
 function updateGeomap(commodity){
+    
+    
 
     // set up new color scale for legend
     let newRange = setColorRange(commodity, raw);
@@ -1092,12 +1104,14 @@ function updateGeomap(commodity){
                        });
             // append a rectangle for each color in the range
             geomapLegend.append('rect')
+                    .attr("class", "geomapLegend")
                     .attr('width', 20)
                     .attr('height', 20)
                     .style('fill', function(d){ return d; })
                     .style('stroke', color);
             // append labels for each color rectangle
             geomapLegend.append('text')
+                    .attr("class", "geomapLegend")
                     .attr('x', 25)
                     .attr('y', 16)
                     .text(function(d, i){ 

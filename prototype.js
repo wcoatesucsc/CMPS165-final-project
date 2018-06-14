@@ -216,7 +216,7 @@ function drawBarChart(commodity){
    
       var keys = data.columns.slice(1);
     
-      console.log(keys);
+      //console.log(keys);
 
       barChartX.domain(data.map(function(d) { /*console.log("mapping: " + d.country);*/ return d.country.substring(5); }));
     
@@ -308,7 +308,7 @@ function drawBarChart(commodity){
  Functions for when each radio button is called
  */
 function updateSteel(){
-    console.log("update steel");
+    //console.log("update steel");
     // update geomap
     radioUpdate();
 
@@ -317,35 +317,35 @@ function updateSteel(){
     updateGeomap("steel")
 }
 function updateAluminum(){
-    console.log("update aluminum");
+    //console.log("update aluminum");
     radioUpdate();
 
     drawBarChart("aluminum");
     updateGeomap("aluminum")
 }
 function updateHighTech(){
-    console.log("update high tech");
+    //console.log("update high tech");
     radioUpdate();
 
     drawBarChart("high tech");
     updateGeomap("high tech")
 }
 function updatePork(){
-    console.log("update pork");
+    //console.log("update pork");
     radioUpdate();
 
     drawBarChart("pork");
     updateGeomap("pork")
 }
 function updateSoybeans(){
-    console.log("update Soybeans");
+    //console.log("update Soybeans");
     radioUpdate();
 
     drawBarChart("soybeans");
     updateGeomap("soybeans")
 }
 function updateTransportation(){
-    console.log("update transportation");
+    //console.log("update transportation");
     radioUpdate();
 
     drawBarChart("transportation");
@@ -362,7 +362,7 @@ $("#commodity").hide().html(commodity).fadeIn('fast');
 function radioUpdate() {
     d3.selectAll("input[name='commodity']").on("change", function(){
         commodity = this.value;
-        console.log("commodity = " + commodity);
+        //console.log("commodity = " + commodity);
         $("#commodity").hide().html(commodity+" employment by county").fadeIn('slow');
     });
 }

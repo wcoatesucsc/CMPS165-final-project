@@ -140,7 +140,8 @@ var barChartY = d3.scaleLinear()
 var barChartColor = d3.scaleOrdinal()
 .domain(['China','Canada','Brazil','Mexico','Korea','Russia','Germany','United Arab Em','Bahrain','Japan','Hong Kong','Indonesia','All other']) 
 //.range(['rgb(228,26,28,1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)'])
-.range(['red','rgb(255, 127, 0)','rgb(178, 223, 138)','Mexico','rgb(8, 48, 107)','rgb(31, 120, 180)','rgb(166, 206, 227)','United Arab Em','Bahrain','rgb(51, 160, 44)','Hong Kong','rgb(253, 191, 111)','All other']);
+.range(['red','rgb(106, 61, 154)','rgb(178, 223, 138)','rgb(177, 89, 40)','rgb(8, 48, 107)','rgb(31, 120, 180)','rgb(166, 206, 227)','rgb(255, 127, 0)','rgb(202, 178, 214)','rgb(51, 160, 44)','rgb(255, 255, 51)','rgb(253, 191, 111)','rgb(169, 169, 169)']);
+
 
 function drawBarChart(commodity){
     // clear old bar chart

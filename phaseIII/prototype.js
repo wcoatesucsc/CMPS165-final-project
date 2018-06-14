@@ -893,7 +893,7 @@ function drawGeomap(commodity){
 
     // if positive impact, make green
     // if negative impact, make red
-  d3.json("gz_2010_us_050_00_500k_all_employment_percent_aggregated.json", function(json){
+  d3.json("phaseIII/gz_2010_us_050_00_500k_all_employment_percent_aggregated.json", function(json){
     values = [];
     var min = 0;
     var max = 0;

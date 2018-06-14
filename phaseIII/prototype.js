@@ -1,27 +1,27 @@
 // canvas and positioning magic numbers
-var w = 1600;
-var h = 800;
+const w = 1600;
+const h = 800;
 // map magic numbers
-var projectionScale = 1250;
-var mapVertOffset = 100;
-var mapHorizOffset = 300;
+const projectionScale = 1250;
+const mapVertOffset = 100;
+const mapHorizOffset = 300;
 // bar chart magic numbers
-var barWidth = 50;
-var barHeight = 250;
-var barVertOffset = 50;
-var barHorizOffset = 1200;
+const barWidth = 50;
+const barHeight = 250;
+const barVertOffset = 50;
+const barHorizOffset = 1200;
 // pie chart magic numbers
-var pieRadius = 125;
-var pieVertOffset = 150;
-var pieHorizOffset = 1250;
+const pieRadius = 125;
+const pieVertOffset = 150;
+const pieHorizOffset = 1250;
 // tooltip magic numbers
-var tooltipXOffset = 20;
-var tooltipYOffset = 225;
+const tooltipXOffset = 20;
+const tooltipYOffset = 225;
 
 // US states indexed by GeoJSON number
 // NOTE: It doesn't go 01-50, it goes 01, 02, 04(!), 05, 06, 08(!)... for some reason,
 // until "STATE":"72"
-var states = {
+const states = {
     "01": "Alabama",
     "02": "Alaska",
     "04": "Arizona",
@@ -117,12 +117,10 @@ var svg = d3.select("body")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
-
-
-/*
-  Mike Bostock's stacked Bar Chart example: 
-  https://bl.ocks.org/mbostock/3886208
-  */
+/*===============================================================
+ *   Mike Bostock's stacked Bar Chart example: 
+ *   https://bl.ocks.org/mbostock/3886208
+ *===============================================================*/
 var margin = {top: 25, right: -900, bottom: 230, left: 1000},
     width = +svg.attr("width") - margin.left - margin.right - 1000,
     height = +svg.attr("height") - margin.top - margin.bottom - 200,
@@ -682,4 +680,79 @@ function updateGeomap(commodity){
 
 }
 // draw the map for the first time!
-drawGeomap('pork');
+//drawGeomap('pork');
+
+/*==================================================================
+ * setting up annotations:
+ * by Susie Lu: http://d3-annotation.susielu.com/
+ *=================================================================*/
+const type = d3.annotationLabel;
+
+const annotations = [
+        {
+          note: {
+            label: "Basic settings with subject position(x,y) and a note offset(dx, dy)",
+            title: "d3.annotationLabel"
+          },
+          x: 50,
+          y: 150,
+          dy: 137,
+          dx: 162
+        },{
+          note: {
+            label: "Added connector end 'arrow', note wrap '180', and note align 'left'",
+            title: "d3.annotationLabel",
+            wrap: 150,
+            align: "left"
+          },
+          connector: {
+            end: "arrow" // 'dot' also available
+          },
+          x: 170,
+          y: 150,
+          dy: 137,
+          dx: 162
+        },{
+          note: {
+            label: "Changed connector type to 'curve'",
+            title: "d3.annotationLabel",
+            wrap: 150
+          },
+          connector: {
+            end: "dot",
+            type: "curve",
+            //can also add a curve type, e.g. curve: d3.curveStep
+            points: [[100, 14],[190, 52]]
+          },
+          x: 350,
+          y: 150,
+          dy: 137,
+          dx: 262
+        },{
+          //below in makeAnnotations has type set to d3.annotationLabel
+          //you can add this type value below to override that default
+          type: d3.annotationCalloutCircle,
+          note: {
+            label: "A different annotation type",
+            title: "d3.annotationCalloutCircle",
+            wrap: 190
+          },
+          //settings for the subject, in this case the circle radius
+          subject: {
+            radius: 50
+          },
+          x: 620,
+          y: 150,
+          dy: 137,
+          dx: 102
+        }].map(function(d){ d.color = "#E8336D"; return d})
+
+        const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
+

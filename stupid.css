@@ -409,3 +409,50 @@ a:not(.btn):not(.noeffect):after {
 	font-size: 16px;
 	line-height: 20px;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.impact_tooltip {
+    position: relative;
+    border-bottom: 1px;
+    padding-bottom: 9px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.impact_tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 10%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.impact_tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.impact_tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

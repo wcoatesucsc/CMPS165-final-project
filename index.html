@@ -35,13 +35,21 @@
             <form>
                <div id="outer">
                   <div class="inner">
-                     <p><b><u>Positive impact</u></b></p>
+                     <div class="impact_tooltip">Positive impact
+                        <span class="tooltiptext">
+                           The tariffs enacted by the U.S. intend to protect these industries.
+                        </span>
+                     </div>
                      <input type="radio" name="commodity" value="Steel" onclick="updateSteel()"> Steel<br>
                      <input type="radio" name="commodity" value="Aluminum" onclick="updateAluminum()"> Aluminum<br>
                      <input type="radio" name="commodity" value="Consumer Electronics/High-Tech" onclick="updateHighTech()"> Consumer Electronics/High-Tech<br>
                   </div>
                   <div class="inner" style="margin-left:80px;">
-                     <p><b><u>Negative impact</u></b></p>
+                     <div class="impact_tooltip">Negative impact
+                        <span class="tooltiptext">
+                           The retaliatory tariffs enacted by the China intend to harm these industries.
+                        </span>
+                     </div>
                      <input type="radio" name="commodity" value="Pork" onclick="updatePork()" checked> Pork<br>
                      <input type="radio" name="commodity" value="Soybeans" onclick="updateSoybeans()"> Soybeans<br>
                      <input type="radio" name="commodity" value="Transportation" onclick="updateTransportation()"> Transportation <br>

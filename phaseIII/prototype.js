@@ -725,10 +725,67 @@ function fill(properties, raw, field, percent, commodity){
 var color = d3.scaleQuantize()
 .domain([0, 10])
 //.range(['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
-.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+//.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)']);
+
+function setColorRange(commodity, raw){
+    if(commodity == "steel"){
+       // then divide into raw/percent
+       if(raw){
+           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+       } 
+       else{
+           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+       }
+    }
+    else if (commodity == "aluminum"){
+        if(raw){
+            return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+        }
+        else{
+           return ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+        }
+    }
+    else if (commodity == "high tech"){
+        if(raw){
+           return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(65,171,93)','rgb(35,139,69)','rgb(0,90,50)'];
+        }
+        else{
+            return ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+        }
+    }
+    else if (commodity == "pork"){
+        if(raw){
+            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+        else{
+            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+    }
+    else if (commodity == "soybeans"){
+        if(raw){
+            return ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+        else{
+            return ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+        }
+    }
+    else if (commodity == "transportation"){
+        if(raw){
+            return ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+        }
+        else{
+            return  ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+        }
+    }
+}
 
 function drawGeomap(commodity){
 
+    // set up new color scale for legend
+    let newRange = setColorRange(commodity, raw);
+   
+    color.range(newRange);
+    
     // clear old geomap
     svg.selectAll("path").remove();
     
@@ -774,12 +831,6 @@ function drawGeomap(commodity){
 
     // if positive impact, make green
     // if negative impact, make red
-    if(positive){
-         color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
-    }else{
-      color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
-    }
-
   d3.json("gz_2010_us_050_00_500k_all_employment_percent_aggregated.json", function(json){
     values = [];
     var min = 0;
@@ -804,8 +855,7 @@ function drawGeomap(commodity){
     console.log("max= "+max)
     */
     // reset domain of scale
-    color.domain([min, max]);
-
+    //color.domain([min, max]);
       svg.selectAll("path#map")
       .data(json.features)
   	  .enter()
@@ -895,7 +945,7 @@ function drawGeomap(commodity){
                     // The quantized scale put almost all regions in the 
                     // lowest bucket because Copenhagen is such an
                     // outlier, so I made custom ranges for each color
-                    var ranges = ["1-2", "3-5", "6-10", "11-20"];
+                    var ranges = ["1-2", "3-5", "6-10", "11-20", "25-30"];
                         return ranges[i] + " %";
                     });
 }
@@ -906,6 +956,11 @@ function drawGeomap(commodity){
  */
 function updateGeomap(commodity){
 
+    // set up new color scale for legend
+    let newRange = setColorRange(commodity, raw);
+   
+    color.range(newRange);
+    
     var field="";
     var percent = "";
     var positive = false;
@@ -944,13 +999,6 @@ function updateGeomap(commodity){
         console.log("somehow you selected a commodity that we haven't graphed");
         return;
     }
-
-    if(positive){
-      color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
-    }else{
-      color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
-    }
-
   d3.json("gz_2010_us_050_00_500k_all_employment_percent_aggregated.json", function(json){
     values = [];
     var min = 0;
@@ -970,7 +1018,7 @@ function updateGeomap(commodity){
     max = Math.max.apply(null, values);
       
     // reset domain of scale
-    color.domain([min, max]);
+   // color.domain([min, max]);
 
       
       // re-fill the paths

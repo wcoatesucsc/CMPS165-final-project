@@ -20,6 +20,23 @@ const tooltipYOffset = 225;
 
 // percent vs raw numbers
 var raw = true;
+function updateMeasurementRaw(){
+  raw = true;
+  var formatted_commodity = commodity.toLowerCase();
+  if(formatted_commodity=="consumer electronics/high-tech"){
+    formatted_commodity = "high tech"
+  }
+  updateGeomap(formatted_commodity);
+}
+
+function updateMeasurementPercent(){
+  raw = false;
+  var formatted_commodity = commodity.toLowerCase();
+  if(formatted_commodity=="consumer electronics/high-tech"){
+    formatted_commodity = "high tech"
+  }
+  updateGeomap(formatted_commodity)
+}
 
 // US states indexed by GeoJSON number
 // NOTE: It doesn't go 01-50, it goes 01, 02, 04(!), 05, 06, 08(!)... for some reason,

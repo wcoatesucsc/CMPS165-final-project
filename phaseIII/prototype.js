@@ -408,28 +408,36 @@ function drawGeomap(commodity){
     // clear old geomap
     svg.selectAll("path").remove();
     var field="";
+    var tot_emp="all_employment";
+    var percent = "";
     var positive = false;
 
     if(commodity == "steel"){
       field="steel_employment"
+      percent="steel_percent"
       positive = true;
     }
     else if(commodity == "aluminum"){
       field="aluminum_employment"
+      percent="aluminum_percent"
       positive = true;
     }
     else if(commodity == "high tech"){
       field="hightech_employment"
+      percent="hightech_percent"
       positive = true;
     }
     else if(commodity == "pork"){
       field="pork_employment"
+      percent="pork_percent"
     }
     else if(commodity == "soybeans"){
       field="oilseed_employment"
+      percent="oilseed_percent"
     }
     else if(commodity == "transportation"){
       field="transportation_employment"
+      percent="transportation_percent"
     }
     else{
         console.log("somehow you selected a commodity that we haven't graphed");
@@ -444,7 +452,7 @@ function drawGeomap(commodity){
       color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
-  d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){
+  d3.json("gz_2010_us_050_00_500k_all_employment_percent.json", function(json){
     values = [];
     var min = 0;
     var max = 0;
@@ -502,7 +510,7 @@ function drawGeomap(commodity){
               $('#percent').empty().append(0) 
             }else{
               $('#workers').empty().append(d.properties[field])
-              $('#percent').empty().append(d.properties[field])
+              $('#percent').empty().append(d.properties[percent].toFixed(2)+"%")
             }
           
           //Show the tooltip
@@ -523,26 +531,33 @@ function drawGeomap(commodity){
 function updateGeomap(commodity){
 
     var field="";
+    var percent = "";
     var positive = true;
     if(commodity == "steel"){
       field="steel_employment"
+      percent="steel_percent"
     }
     else if(commodity == "aluminum"){
       field="aluminum_employment"
+      percent="aluminum_percent"
     }
     else if(commodity == "high tech"){
       field="hightech_employment"
+      percent="hightech_percent"
     }
     else if(commodity == "pork"){
       field="pork_employment"
+      percent="pork_percent"
       positive = false;
     }
     else if(commodity == "soybeans"){
       field="oilseed_employment"
+      percent="oilseed_percent"
       positive = false;
     }
     else if(commodity == "transportation"){
       field="transportation_employment"
+      percent="transportation_percent"
       positive = false;
     }
     else{
@@ -556,13 +571,13 @@ function updateGeomap(commodity){
       color.range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
 
-  d3.json("gz_2010_us_050_00_500k_all_employment_for_real.json", function(json){
+  d3.json("gz_2010_us_050_00_500k_all_employment_percent.json", function(json){
     values = [];
     var min = 0;
     var max = 0;
     for (var i = 0; i < json.features.length; i++) {
         if(typeof json.features[i].properties[field] !== "undefined"){
-          console.log(json.features[i].properties[field]);
+          //console.log(json.features[i].properties[field]);
           values.push(json.features[i].properties[field])
         }
      }
@@ -608,7 +623,7 @@ function updateGeomap(commodity){
               $('#percent').empty().append(0) 
             }else{
               $('#workers').empty().append(d.properties[field])
-              $('#percent').empty().append(d.properties[field])
+              $('#percent').empty().append(d.properties[percent].toFixed(2)+"%")
             }
           
           //Show the tooltip

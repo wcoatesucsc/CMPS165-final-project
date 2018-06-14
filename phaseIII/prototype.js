@@ -158,7 +158,7 @@ var barChartY = d3.scaleLinear()
 var barChartColor = d3.scaleOrdinal()
 .domain(['China','Canada','Brazil','Mexico','Korea','Russia','Germany','United Arab Em','Bahrain','Japan','Hong Kong','Indonesia','All other']) 
 //.range(['rgb(228,26,28,1.0)','rgb(55,126,184, 0.5)','rgb(77,175,74, 0.5)','rgb(152,78,163, 0.5)','rgb(255,127,0, 0.5)','rgb(169, 169, 169, 0.5)'])
-.range(['red','rgb(106, 61, 154)','rgb(178, 223, 138)','rgb(177, 89, 40)','rgb(8, 48, 107)','rgb(31, 120, 180)','rgb(166, 206, 227)','rgb(255, 127, 0)','rgb(202, 178, 214)','rgb(51, 160, 44)','rgb(255, 255, 51)','rgb(253, 191, 111)','rgb(169, 169, 169)']);
+.range(['red','rgb(106, 61, 154, 0.5)','rgb(178, 223, 138, 0.5)','rgb(177, 89, 40, 0.5)','rgb(8, 48, 107, 0.5)','rgb(31, 120, 180, 0.5)','rgb(166, 206, 227, 0.5)','rgb(255, 127, 0, 0.5)','rgb(202, 178, 214, 0.5)','rgb(51, 160, 44, 0.5)','rgb(255, 255, 51, 0.5)','rgb(253, 191, 111, 0.5)','rgb(169, 169, 169)']);
 
 
 function drawBarChart(commodity){
@@ -377,10 +377,347 @@ drawBarChart("steel");
 *
 *
    ====================================================================*/
+function rawSteelScale(field){
+    let scale = ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+    if(field <= 100){
+       return scale[0];
+    }
+    else if(field <= 500){
+        
+       return scale[1];
+    }
+    else if(field <= 1000){
+        
+       return scale[2];
+    }
+    else if(field <= 3000){
+        
+       return scale[3];
+    }
+    else{
+       return scale[4]; 
+    }
+}
+function percentSteelScale(field){
+    let scale = ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+    if(field <= 0.1){
+       return scale[0];
+    }
+    else if(field <= 1){
+        
+       return scale[1];
+    }
+    else if(field <= 5){
+        
+       return scale[2];
+    }
+    else if(field <= 10){
+        
+       return scale[3];
+    }
+    else{
+       return scale[4]; 
+    }
+}
+
+function rawAluminumScale(field){
+    let scale =['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+    if(field <= 100){
+       return scale[0];
+    }
+    else if(field <= 300){
+        
+       return scale[1];
+    }
+    else if(field <= 500){
+        
+       return scale[2];
+    }
+    else if(field <= 750){
+        
+       return scale[3];
+    }
+    else if (field <= 1000){
+       return scale[4]; 
+    }
+    else{
+        return scale[5];
+    }
+}
+function percentAluminumScale(field){
+    let scale = ['rgb(237,248,233)','rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+    if(field <= 0.1){
+       return scale[0];
+    }
+    else if(field <= 1){
+        
+       return scale[1];
+    }
+    else if(field <= 5){
+        
+       return scale[2];
+    }
+    else if(field <= 10){
+        
+       return scale[3];
+    }
+    else{
+       return scale[4]; 
+    }
+}
+function rawHighTechScale(field){
+    let scale =['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(65,171,93)','rgb(35,139,69)','rgb(0,90,50)'];
+    if(field <= 100){
+       return scale[0];
+    }
+    else if(field <= 1000){
+        
+       return scale[1];
+    }
+    else if(field <= 3000){
+        
+       return scale[2];
+    }
+    else if(field <= 5000){
+        
+       return scale[3];
+    }
+    else if (field <= 10000){
+       return scale[4]; 
+    }
+    else if (field <= 50000){
+        return scale[5];
+    }
+    else{
+        return scale[6];
+    }
+}
+function percentHighTechScale(field){
+    let scale = ['rgb(237,248,233)','rgb(199,233,192)','rgb(161,217,155)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'];
+    if(field <= 0.1){
+       return scale[0];
+    }
+    else if(field <= 1){
+        
+       return scale[1];
+    }
+    else if(field <= 5){
+        
+       return scale[2];
+    }
+    else if(field <= 10){
+        
+       return scale[3];
+    }
+    else if(field <= 15){
+       return scale[4]; 
+    }
+    else{
+        return scale[5];
+    }
+}
+
+function rawPorkScale(field){
+    
+    let scale =['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+    if(field <= 50){
+       return scale[0];
+    }
+    else if(field <= 100){
+        
+       return scale[1];
+    }
+    else if(field <= 300){
+        
+       return scale[2];
+    }
+    else if(field <= 500){
+        
+       return scale[3];
+    }
+    else if (field <= 1000){
+       return scale[4]; 
+    }
+    else{
+        return scale[5];
+    }
+}
+function percentPorkScale(field){
+    let scale = ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+    if(field <= 0.1){
+       return scale[0];
+    }
+    else if(field <= 1){
+        
+       return scale[1];
+    }
+    else if(field <= 5){
+        
+       return scale[2];
+    }
+    else if(field <= 10){
+        
+       return scale[3];
+    }
+    else if(field <= 15){
+       return scale[4]; 
+    }
+    else{
+        return scale[5];
+    }
+}
+
+function rawSoybeanScale(field){
+    let scale =['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+    if(field <= 50){
+       return scale[0];
+    }
+    else if(field <= 100){
+        
+       return scale[1];
+    }
+    else if(field <= 300){
+        
+       return scale[2];
+    }
+    else if(field <= 500){
+        
+       return scale[3];
+    }
+    else{
+        return scale[4];
+    }
+}
+function percentSoybeanScale(field){
+    let scale = ['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'];
+    if(field <= 0.1){
+       return scale[0];
+    }
+    else if(field <= 1){
+        
+       return scale[1];
+    }
+    else if(field <= 5){
+        
+       return scale[2];
+    }
+    else if(field <= 10){
+        
+       return scale[3];
+    }
+    else{
+       return scale[4]; 
+    }
+}
+
+function rawTransportationScale(field){
+    let scale =['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+    if(field <= 100){
+       return scale[0];
+    }
+    else if(field <= 1000){
+        
+       return scale[1];
+    }
+    else if(field <= 3000){
+       return scale[2];
+    }
+    else if(field <= 5000){
+        
+       return scale[3];
+    }
+    else if(field <= 10000){
+        return scale[4];
+    }
+    else if(field <= 25000){
+        return scale[5];
+    }
+    else{ 
+        return scale[6];
+    }
+}
+function percentTransportationScale(field){
+    let scale = ['rgb(254,229,217)','rgb(252,187,161)','rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)','rgb(203,24,29)','rgb(153,0,13)'];
+    if(field <= 0.1){
+       return scale[0];
+    }
+    else if(field <= 1){
+        
+       return scale[1];
+    }
+    else if(field <= 5){
+        
+       return scale[2];
+    }
+    else if(field <= 10){
+        
+       return scale[3];
+    }
+    else if(field <= 15){
+       return scale[4]; 
+    }
+    else if(field <= 30){
+       return scale[5]; 
+    }
+    else{
+        return scale[6];
+    }
+}
 
 
-
-
+// complicated custom fill function for custom scales
+function fill(properties, raw, field, percent, commodity){
+     // first split into commodities
+    if(commodity == "steel"){
+       // then divide into raw/percent
+       if(raw){
+           return rawSteelScale(properties[field]);
+       } 
+       else{
+           return percentSteelScale(properties[percent]);
+       }
+    }
+    else if (commodity == "aluminum"){
+        if(raw){
+           return rawAluminumScale(properties[field]);
+        }
+        else{
+           return percentAluminumScale(properties[percent]);
+        }
+    }
+    else if (commodity == "high tech"){
+        if(raw){
+           return rawHighTechScale(properties[field]);
+        }
+        else{
+           return percentHighTechScale(properties[percent]);
+        }
+    }
+    else if (commodity == "pork"){
+        if(raw){
+            return rawPorkScale(properties[field]);   
+        }
+        else{
+            return percentPorkScale(properties[percent]); 
+        }
+    }
+    else if (commodity == "soybeans"){
+        if(raw){
+            return rawSoybeanScale(properties[field]);
+        }
+        else{
+            return percentSoybeanScale(properties[percent]);
+        }
+    }
+    else if (commodity == "transportation"){
+        if(raw){
+            return rawTransportationScale(properties[field]);
+        }
+        else{
+            return percentTransportationScale(properties[percent]);
+        }
+    }
+}
 
 
 
@@ -437,7 +774,7 @@ function drawGeomap(commodity){
     // if positive impact, make green
     // if negative impact, make red
     if(positive){
-      color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
+         color.range(['rgb(186,228,179)','rgb(116,196,118)','rgb(49,163,84)','rgb(0,109,44)'])
     }else{
       color.range(['rgb(252,174,145)','rgb(251,106,74)','rgb(222,45,38)','rgb(165,15,21)'])
     }
@@ -482,12 +819,17 @@ function drawGeomap(commodity){
               return "rgb(0, 0, 0)";
           }
           else{
+              // call the custom fill function for the specified
+              // commodity, variable, and value
+              return fill(d.properties, raw, field, percent, commodity);
+              /*
               if(raw){
                   return color(d.properties[field]);
               }
               else{
                   return color(d.properties[percent]);
               }
+              */
           }
       })
       // tooltips!
@@ -640,12 +982,15 @@ function updateGeomap(commodity){
           }
           else{
               // otherwise, fill it with an appropriate color
+              return fill(d.properties, raw, field, percent, commodity);
+              /*
               if(raw){
                   return color(d.properties[field]);
               }
               else{
                   return color(d.properties[percent]);
               }
+              */
           }
       })
       

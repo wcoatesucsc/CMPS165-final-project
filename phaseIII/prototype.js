@@ -161,6 +161,7 @@ var barChartColor = d3.scaleOrdinal()
 .range(['red','rgb(106, 61, 154, 0.5)','rgb(178, 223, 138, 0.5)','rgb(177, 89, 40, 0.5)','rgb(8, 48, 107, 0.5)','rgb(31, 120, 180, 0.5)','rgb(166, 206, 227, 0.5)','rgb(255, 127, 0, 0.5)','rgb(202, 178, 214, 0.5)','rgb(51, 160, 44, 0.5)','rgb(255, 255, 51, 0.5)','rgb(253, 191, 111, 0.5)','rgb(169, 169, 169)']);
 
 
+
 function drawBarChart(commodity){
     // clear old bar chart
     svg.selectAll("rect").remove();

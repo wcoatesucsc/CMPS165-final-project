@@ -13,11 +13,11 @@
          <p>
          <p style="text-align:left;">
             # of workers:
-            <span style="float:right;">132</span>
+            <span id="workers" style="float:right;">132</span>
          </p>
          <p style="text-align:left;">
             % of workforce:
-            <span style="float:right;">15%</span>
+            <span id="percent" style="float:right;">15%</span>
          </p>
       </div>
       <div class="padded center">
@@ -32,13 +32,13 @@
                <div id="outer">
                   <div class="inner">
                      <p><b><u>Positive impact</u></b></p>
-                     <input type="radio" name="commodity" value="Steel" onclick="updateSteel()" checked> Steel<br>
+                     <input type="radio" name="commodity" value="Steel" onclick="updateSteel()"> Steel<br>
                      <input type="radio" name="commodity" value="Aluminum" onclick="updateAluminum()"> Aluminum<br>
                      <input type="radio" name="commodity" value="Consumer Electronics/High-Tech" onclick="updateHighTech()"> Consumer Electronics/High-Tech<br>
                   </div>
                   <div class="inner" style="margin-left:80px;">
                      <p><b><u>Negative impact</u></b></p>
-                     <input type="radio" name="commodity" value="Pork" onclick="updatePork()"> Pork<br>
+                     <input type="radio" name="commodity" value="Pork" onclick="updatePork()" checked> Pork<br>
                      <input type="radio" name="commodity" value="Soybeans" onclick="updateSoybeans()"> Soybeans<br>
                      <input type="radio" name="commodity" value="Transportation" onclick="updateTransportation()"> Transportation <br>
             </form>
@@ -46,7 +46,7 @@
             </div>
             <br>
          </div>
-         <div id="commodity" style="display: inline; font-weight: bold; margin-left: 5%;"><b>Steel employment by county</b></div>
+         <div id="commodity" style="display: inline; font-weight: bold; margin-left: 5%;"><b>Pork employment by county</b></div>
       </div>
       </div>
       <div class="container">
